@@ -44,7 +44,7 @@
   <tr>
     <td>📤</td>
     <td><sub><b>Diego0160</b>/Diego0160</sub></td>
-    <td><sub>pushed changes · 41a6594</sub></td>
+    <td><sub>pushed changes · c8fd2fc</sub></td>
     <td><sub><code>2026-05-28</code></sub></td>
   </tr>
   <tr>
@@ -87,12 +87,6 @@
     <td>📤</td>
     <td><sub><b>Diego0160</b>/Diego0160</sub></td>
     <td><sub>pushed changes · b88d7f9</sub></td>
-    <td><sub><code>2026-05-28</code></sub></td>
-  </tr>
-  <tr>
-    <td>📤</td>
-    <td><sub><b>Diego0160</b>/Diego0160</sub></td>
-    <td><sub>pushed changes · 95edfb9</sub></td>
     <td><sub><code>2026-05-28</code></sub></td>
   </tr>
 
