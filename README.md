@@ -1,15 +1,6 @@
 
 <div align="center">
 
-[![](https://img.shields.io/badge/Nix-7EBAE4?style=flat&logo=nixos&logoColor=white)](https://nixos.org/)
-[![](https://img.shields.io/badge/QML-44A51C?style=flat&logo=qt&logoColor=white)](https://doc.qt.io/qt-6/qtqml-index.html)
-[![](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)](https://python.org/)
-[![](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![](https://img.shields.io/badge/Haxe-EA8220?style=flat&logo=haxe&logoColor=white)](https://haxe.org/)
-[![](https://img.shields.io/badge/Hyprland-00C1D4?style=flat&logo=hyprland&logoColor=white)](https://hyprland.org/)
-
----
-
 
 | | |
 |---|---|
@@ -23,13 +14,13 @@
 ## GitHub Stats
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Diego0160&show_icons=true&theme=vue-dark&hide_border=true&count_private=true" height="165" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Diego0160&layout=compact&theme=vue-dark&hide_border=true&langs_count=8" height="165" />
+  <img src="https://github-readme-stats-eight-theta.vercel.app/api?username=Diego0160&show_icons=true&theme=vue-dark&hide_border=true&count_private=true" height="165" />
+  <img src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=Diego0160&layout=compact&theme=vue-dark&hide_border=true&langs_count=8" height="165" />
 </p>
 
 <p align="center">
   <img src="https://streak-stats.demolab.com?user=Diego0160&theme=vue-dark&hide_border=true" height="165" />
-  <img src="https://github-readme-stats.vercel.app/api?username=Diego0160&show=reviews,discussions_started,discussions_answered&theme=vue-dark&hide_border=true&count_private=true" height="165" />
+  <img src="https://github-readme-stats-eight-theta.vercel.app/api?username=Diego0160&show=reviews,discussions_started,discussions_answered&theme=vue-dark&hide_border=true&count_private=true" height="165" />
 </p>
 
 ---
@@ -37,7 +28,7 @@
 ## GitHub Trophies
 
 <p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=Diego0160&theme=onedark&no-frame=true&no-bg=true&column=7" width="100%" />
+  <img src="https://github-profile-trophy.vercel.app/?username=Diego0160&theme=onedark&no-frame=true&no-bg=true&margin-w=4" width="100%" />
 </p>
 
 ---
@@ -123,7 +114,7 @@
 ---
 
 <div align="center">
-  <sub><i>Generated with ❄️ Nix · 2026-05-28 17:33 UTC</i></sub>
+  <sub><i>Generated with ❄️ Nix · 2026-05-28 17:34 UTC</i></sub>
   <br>
   <sub>
     <a href="https://github.com/Diego0160/Diego0160">Source</a>
