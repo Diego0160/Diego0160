@@ -8,6 +8,8 @@ import urllib.request
 import urllib.error
 from datetime import datetime, timezone
 
+SPOTIFY_USER = "31xeyrnyhnslgituoph2rdn7j5ym"
+
 
 def api_get(endpoint, token=None):
     url = f"https://api.github.com{endpoint}"
@@ -27,22 +29,31 @@ def api_get(endpoint, token=None):
         return None
 
 
-def get_user(username):
-    return api_get(f"/users/{username}")
+def get_user(username, token=None):
+    data = api_get(f"/users/{username}", token=token)
+    if data is None:
+        data = api_get(f"/users/{username}")
+    return data
 
 
-def get_repos(username):
-    data = api_get(f"/users/{username}/repos?per_page=100&sort=updated&type=owner")
+def get_repos(username, token=None):
+    data = api_get(f"/users/{username}/repos?per_page=100&sort=updated&type=owner", token=token)
+    if data is None:
+        data = api_get(f"/users/{username}/repos?per_page=100&sort=updated&type=owner")
     return data or []
 
 
-def get_languages(repo_full_name):
-    data = api_get(f"/repos/{repo_full_name}/languages")
+def get_languages(repo_full_name, token=None):
+    data = api_get(f"/repos/{repo_full_name}/languages", token=token)
+    if data is None:
+        data = api_get(f"/repos/{repo_full_name}/languages")
     return data or {}
 
 
 def get_recent_activity(username, token=None):
     events = api_get(f"/users/{username}/events/public?per_page=10", token=token)
+    if not events:
+        events = api_get(f"/users/{username}/events/public?per_page=10")
     if not events:
         return []
     items = []
@@ -93,84 +104,82 @@ def get_recent_activity(username, token=None):
 
 
 def get_readme_stats(username, token=None):
-    user = get_user(username)
-    repos = get_repos(username)
+    user = get_user(username, token=token)
+    repos = get_repos(username, token=token)
 
-    if not user:
-        return {
-            "name": username,
-            "bio": "",
-            "location": "",
-            "company": "",
-            "blog": "",
-            "public_repos": 0,
-            "followers": 0,
-            "following": 0,
-            "avatar_url": "",
-            "top_languages": {},
-            "pinned": [],
-            "repo_count": 0,
-            "total_stars": 0,
-            "total_forks": 0,
-            "activity": [],
-            "updated": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
-        }
-
-    lang_bytes = {}
-    repo_count = 0
-    total_stars = 0
-    total_forks = 0
-    pinned = []
-    for repo in repos:
-        if repo.get("fork"):
-            continue
-        if repo.get("archived"):
-            continue
-        repo_count += 1
-        total_stars += repo.get("stargazers_count", 0)
-        total_forks += repo.get("forks_count", 0)
-        langs = get_languages(repo["full_name"])
-        for lang, bytes_ in langs.items():
-            lang_bytes[lang] = lang_bytes.get(lang, 0) + bytes_
-
-        if repo_count <= 6:
-            pinned.append({
-                "name": repo["name"],
-                "description": repo.get("description") or "",
-                "url": repo["html_url"],
-                "language": repo.get("language") or "",
-                "stars": repo.get("stargazers_count", 0),
-                "forks": repo.get("forks_count", 0),
-            })
-
-    total = sum(lang_bytes.values())
-    top_langs = {}
-    if total > 0:
-        sorted_langs = sorted(lang_bytes.items(), key=lambda x: -x[1])[:8]
-        for lang, bytes_ in sorted_langs:
-            top_langs[lang] = round(bytes_ / total * 100)
-
-    activity = get_recent_activity(username, token=token)
-
-    return {
-        "name": user.get("name") or username,
-        "bio": user.get("bio") or "",
-        "location": user.get("location") or "",
-        "company": user.get("company") or "",
-        "blog": user.get("blog") or "",
-        "public_repos": user.get("public_repos", 0),
-        "followers": user.get("followers", 0),
-        "following": user.get("following", 0),
-        "avatar_url": user.get("avatar_url", ""),
-        "top_languages": top_langs,
-        "pinned": pinned,
-        "repo_count": repo_count,
-        "total_stars": total_stars,
-        "total_forks": total_forks,
-        "activity": activity,
+    base = {
+        "name": username,
+        "bio": "",
+        "location": "",
+        "company": "",
+        "blog": "",
+        "public_repos": 0,
+        "followers": 0,
+        "following": 0,
+        "avatar_url": f"https://github.com/{username}.png",
+        "top_languages": {},
+        "pinned": [],
+        "repo_count": 0,
+        "total_stars": 0,
+        "total_forks": 0,
+        "activity": [],
+        "spotify_user": SPOTIFY_USER,
         "updated": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
-        "spotify_user": "31xeyrnyhnslgituoph2rdn7j5ym",
     }
+
+    if user:
+        base["name"] = user.get("name") or username
+        base["bio"] = user.get("bio") or ""
+        base["location"] = user.get("location") or ""
+        base["company"] = user.get("company") or ""
+        base["blog"] = user.get("blog") or ""
+        base["public_repos"] = user.get("public_repos", 0)
+        base["followers"] = user.get("followers", 0)
+        base["following"] = user.get("following", 0)
+        base["avatar_url"] = user.get("avatar_url", f"https://github.com/{username}.png")
+
+    if repos:
+        lang_bytes = {}
+        repo_count = 0
+        total_stars = 0
+        total_forks = 0
+        pinned = []
+        for repo in repos:
+            if repo.get("fork") or repo.get("archived"):
+                continue
+            repo_count += 1
+            total_stars += repo.get("stargazers_count", 0)
+            total_forks += repo.get("forks_count", 0)
+            langs = get_languages(repo["full_name"], token=token)
+            for lang, bytes_ in langs.items():
+                lang_bytes[lang] = lang_bytes.get(lang, 0) + bytes_
+
+            if repo_count <= 6:
+                pinned.append({
+                    "name": repo["name"],
+                    "description": repo.get("description") or "",
+                    "url": repo["html_url"],
+                    "language": repo.get("language") or "",
+                    "stars": repo.get("stargazers_count", 0),
+                    "forks": repo.get("forks_count", 0),
+                })
+
+        total = sum(lang_bytes.values())
+        top_langs = {}
+        if total > 0:
+            sorted_langs = sorted(lang_bytes.items(), key=lambda x: -x[1])[:8]
+            for lang, bytes_ in sorted_langs:
+                top_langs[lang] = round(bytes_ / total * 100)
+
+        base["top_languages"] = top_langs
+        base["pinned"] = pinned
+        base["repo_count"] = repo_count
+        base["total_stars"] = total_stars
+        base["total_forks"] = total_forks
+
+    base["activity"] = get_recent_activity(username, token=token)
+
+    return base
 
 
 def render_template(template_path, stats):
@@ -180,7 +189,7 @@ def render_template(template_path, stats):
     ctx = {k: v for k, v in stats.items()}
 
     lang_bar = " ".join(
-        f"![{lang}](https://img.shields.io/badge/{lang.replace(' ', '%20')}-{_lang_color(lang)}?style=flat&logo={_lang_logo(lang)})"
+        f"![](https://img.shields.io/badge/{lang.replace(' ', '%20')}-{_lang_color(lang)}?style=flat&logo={_lang_logo(lang)})"
         for lang in stats["top_languages"]
     )
     ctx["lang_badges"] = lang_bar
@@ -197,20 +206,12 @@ def render_template(template_path, stats):
   </tr>"""
     ctx["pinned_rows"] = pinned_items
 
-    neofetch_lines = f"""<pre>
-  <img src="{stats['avatar_url']}" width="120" height="120" align="left" style="margin-right: 15px; border-radius: 8px;" />
-  <b>{stats['name']}</b>
-  {"─" * (len(stats['name']) + 2)}
-  <b>OS</b>       NixOS ❄️ / Arch 🐉
-  <b>Shell</b>     zsh
-  <b>WM</b>        Hyprland
-  <b>Stack</b>     Nix · QML · Python · TS · Haxe
-  <b>Repos</b>     {stats['public_repos']} public · {stats['repo_count']} active
-  <b>Stars</b>    {stats['total_stars']}
-  <b>Forks</b>    {stats['total_forks']}
-  <b>Followers</b> {stats['followers']}
-  <b>Following</b> {stats['following']}
-</pre>"""
+    avatar = stats["avatar_url"]
+    neofetch_lines = f"""
+| | |
+|---|---|
+| <img src="{avatar}" width="120" height="120" /> | **{stats['name']}**<br>{"─" * max(len(stats['name']) + 2, 12)}<br>**OS**       NixOS ❄️ / Arch 🐉<br>**Shell**     zsh<br>**WM**        Hyprland<br>**Stack**     Nix · QML · Python · TS · Haxe<br>**Repos**     {stats['public_repos']} public · {stats['repo_count']} active<br>**Stars**    {stats['total_stars']}<br>**Forks**    {stats['total_forks']}<br>**Followers** {stats['followers']}<br>**Following** {stats['following']} |
+"""
     ctx["neofetch"] = neofetch_lines
 
     activity_lines = ""
@@ -298,6 +299,7 @@ def main():
     args = parser.parse_args()
 
     token = os.environ.get("GITHUB_TOKEN")
+    print(f"[*] Token available: {bool(token)}")
 
     print(f"[*] Fetching data for {args.username}...")
     stats = get_readme_stats(args.username, token=token)
@@ -309,10 +311,9 @@ def main():
     with open(args.output, "w") as f:
         f.write(readme)
 
-    print(f"[✓] README generated: {args.output}")
-    print(f"    Repos: {stats['repo_count']}, Languages: {len(stats['top_languages'])}")
-    if stats["activity"]:
-        print(f"    Recent events: {len(stats['activity'])}")
+    print(f"[*] Done: {args.output}")
+    print(f"    API returned: name={stats['name']}, repos={stats['repo_count']}, "
+          f"followers={stats['followers']}, activity={len(stats['activity'])}")
 
 
 main()
