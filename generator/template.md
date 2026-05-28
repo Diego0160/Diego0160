@@ -1,4 +1,3 @@
-
 <div align="center">
 
 {{ neofetch }}
@@ -14,36 +13,45 @@
   <img src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username={{ name }}&layout=compact&theme=vue-dark&hide_border=true&langs_count=8" height="165" />
 </p>
 
-<p align="center">
-  <img src="https://streak-stats.demolab.com?user={{ name }}&theme=vue-dark&hide_border=true" height="165" />
-  <img src="https://github-readme-stats-eight-theta.vercel.app/api?username={{ name }}&show=reviews,discussions_started,discussions_answered&theme=vue-dark&hide_border=true&count_private=true" height="165" />
-</p>
-
 ---
 
 ## GitHub Trophies
 
 <p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username={{ name }}&theme=flat&no-bg=true" width="100%" />
+  <img src="https://github-profile-trophy.vercel.app/?username={{ name }}&theme=flat&no-bg=true&margin-w=4" width="100%" />
 </p>
 
 ---
 
 ## Recent Activity
 
-<table>
-  <tr>
-    <th></th>
-    <th>Repository</th>
-    <th>Event</th>
-    <th>Date</th>
-  </tr>
+<div align="center">
+
+<table style="width: 100%; table-layout: auto;">
+  <thead>
+    <tr>
+      <th width="5%"></th>
+      <th width="30%" align="left">Repository</th>
+      <th width="50%" align="left">Event</th>
+      <th width="15%" align="left">Date</th>
+    </tr>
+  </thead>
+  <tbody>
 {{ activity_rows }}
+  </tbody>
 </table>
+
+</div>
 
 ---
 
-## Spotify
+## Activity Status
+
+<p align="center">
+  <a href="https://discord.com/users/717906950005719091">
+    <img src="https://lanyard.websrv.dependabot.com/api/details/717906950005719091?theme=dark&bg=121212" />
+  </a>
+</p>
 
 <p align="center">
   <a href="https://spotify-github-profile.kittinanx.com/api/view?uid={{ spotify_user }}&redirect=true">
@@ -78,5 +86,3 @@
     </a>
   </sub>
 </div>
-
-
