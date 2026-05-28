@@ -53,8 +53,8 @@
 ## Spotify
 
 <p align="center">
-  <a href="https://open.spotify.com/user/{{ spotify_user }}">
-    <img src="https://spotify-github-profile.vercel.app/api/view?uid={{ spotify_user }}&cover_image=true&theme=compact&show_offline=false&background_color=121212&interchange=false&bar_color=1DB954&bar_color_cover=true" />
+  <a href="https://spotify-github-profile.kittinanx.com/api/view?uid={{ spotify_user }}&redirect=true">
+    <img src="https://spotify-github-profile.kittinanx.com/api/view?uid={{ spotify_user }}&cover_image=true&theme=spotify-embed&show_offline=true&background_color=121212&interchange=false&bar_color=53b14f&bar_color_cover=true&mode=dark" />
   </a>
 </p>
 
