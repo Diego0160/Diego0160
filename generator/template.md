@@ -36,20 +36,6 @@
 
 ---
 
-## Pinned Repositories
-
-<table>
-  <tr>
-    <th>Repo</th>
-    <th>Description</th>
-    <th>Lang</th>
-    <th>Stars</th>
-  </tr>
-{{ pinned_rows }}
-</table>
-
----
-
 ## Recent Activity
 
 <table>
@@ -100,5 +86,4 @@
   </sub>
 </div>
 
-> [!NOTE]
-> This README is **auto-generated** by a [Nix flake](https://github.com/{{ name }}/{{ name }}). Manual edits will be overwritten on the next build.
+

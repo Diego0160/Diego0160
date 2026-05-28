@@ -118,7 +118,6 @@ def get_readme_stats(username, token=None):
         "following": 0,
         "avatar_url": f"https://github.com/{username}.png",
         "top_languages": {},
-        "pinned": [],
         "repo_count": 0,
         "total_stars": 0,
         "total_forks": 0,
@@ -143,7 +142,6 @@ def get_readme_stats(username, token=None):
         repo_count = 0
         total_stars = 0
         total_forks = 0
-        pinned = []
         for repo in repos:
             if repo.get("fork") or repo.get("archived"):
                 continue
@@ -154,16 +152,6 @@ def get_readme_stats(username, token=None):
             for lang, bytes_ in langs.items():
                 lang_bytes[lang] = lang_bytes.get(lang, 0) + bytes_
 
-            if repo_count <= 6:
-                pinned.append({
-                    "name": repo["name"],
-                    "description": repo.get("description") or "",
-                    "url": repo["html_url"],
-                    "language": repo.get("language") or "",
-                    "stars": repo.get("stargazers_count", 0),
-                    "forks": repo.get("forks_count", 0),
-                })
-
         total = sum(lang_bytes.values())
         top_langs = {}
         if total > 0:
@@ -172,7 +160,6 @@ def get_readme_stats(username, token=None):
                 top_langs[lang] = round(bytes_ / total * 100)
 
         base["top_languages"] = top_langs
-        base["pinned"] = pinned
         base["repo_count"] = repo_count
         base["total_stars"] = total_stars
         base["total_forks"] = total_forks
@@ -193,18 +180,6 @@ def render_template(template_path, stats):
         for lang in stats["top_languages"]
     )
     ctx["lang_badges"] = lang_bar
-
-    pinned_items = ""
-    for repo in stats["pinned"]:
-        desc = (repo["description"][:60] + "...") if len(repo["description"]) > 60 else repo["description"]
-        pinned_items += f"""
-  <tr>
-    <td><a href="{repo['url']}"><b>{repo['name']}</b></a></td>
-    <td><sub>{desc}</sub></td>
-    <td><code>{repo['language']}</code></td>
-    <td align="center">⭐ {repo['stars']}</td>
-  </tr>"""
-    ctx["pinned_rows"] = pinned_items
 
     avatar = stats["avatar_url"]
 
