@@ -207,10 +207,16 @@ def render_template(template_path, stats):
     ctx["pinned_rows"] = pinned_items
 
     avatar = stats["avatar_url"]
+
+    tech_badges = " ".join(
+        f"![](https://img.shields.io/badge/{t}-{_lang_color(t)}?style=flat&logo={_lang_logo(t)})"
+        for t in ["Nix", "QML", "Python", "TypeScript", "Haxe"]
+    )
+
     neofetch_lines = f"""
 | | |
 |---|---|
-| <img src="{avatar}" width="120" height="120" /> | **{stats['name']}**<br>{"─" * max(len(stats['name']) + 2, 12)}<br>**OS**       NixOS ❄️ / Arch 🐉<br>**Shell**     zsh<br>**WM**        Hyprland<br>**Stack**     Nix · QML · Python · TS · Haxe<br>**Repos**     {stats['public_repos']} public · {stats['repo_count']} active<br>**Stars**    {stats['total_stars']}<br>**Forks**    {stats['total_forks']}<br>**Followers** {stats['followers']}<br>**Following** {stats['following']} |
+| <img src="{avatar}" width="120" height="120" /> | **{stats['name']}**<br><br>{tech_badges}<br><br>**OS** NixOS ❄️ / Arch 🐉 · **WM** Hyprland<br>**Repos** {stats['public_repos']} public · {stats['repo_count']} active<br>**Stars** {stats['total_stars']} · **Forks** {stats['total_forks']}<br>**Followers** {stats['followers']} · **Following** {stats['following']} |
 """
     ctx["neofetch"] = neofetch_lines
 

@@ -1,8 +1,6 @@
 
 <div align="center">
 
-# ❄️ {{ name }}
-
 [![](https://img.shields.io/badge/Nix-7EBAE4?style=flat&logo=nixos&logoColor=white)](https://nixos.org/)
 [![](https://img.shields.io/badge/QML-44A51C?style=flat&logo=qt&logoColor=white)](https://doc.qt.io/qt-6/qtqml-index.html)
 [![](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)](https://python.org/)
@@ -16,7 +14,7 @@
 
 ---
 
-## 📊 GitHub Stats
+## GitHub Stats
 
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api?username={{ name }}&show_icons=true&theme=vue-dark&hide_border=true&count_private=true" height="165" />
@@ -24,13 +22,13 @@
 </p>
 
 <p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user={{ name }}&theme=vue-dark&hide_border=true" height="165" />
+  <img src="https://streak-stats.demolab.com?user={{ name }}&theme=vue-dark&hide_border=true" height="165" />
   <img src="https://github-readme-stats.vercel.app/api?username={{ name }}&show=reviews,discussions_started,discussions_answered&theme=vue-dark&hide_border=true&count_private=true" height="165" />
 </p>
 
 ---
 
-## 🏆 GitHub Trophies
+## GitHub Trophies
 
 <p align="center">
   <img src="https://github-profile-trophy.vercel.app/?username={{ name }}&theme=onedark&no-frame=true&no-bg=true&column=7" width="100%" />
@@ -38,7 +36,7 @@
 
 ---
 
-## 📌 Pinned Repositories
+## Pinned Repositories
 
 <table>
   <tr>
@@ -52,7 +50,7 @@
 
 ---
 
-## 🔄 Recent Activity
+## Recent Activity
 
 <table>
   <tr>
@@ -66,7 +64,7 @@
 
 ---
 
-## 🎧 Now Playing
+## Spotify
 
 <p align="center">
   <a href="https://open.spotify.com/user/{{ spotify_user }}">
@@ -76,18 +74,10 @@
 
 ---
 
-## 🐍 Contribution Snake
+## Contribution Snake
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/{{ name }}/{{ name }}/output/snake.svg" alt="snake animation" />
-</p>
-
----
-
-## 👁️ Profile Views
-
-<p align="center">
-  <img src="https://komarev.com/ghpvc/?username={{ name }}&color=7EBAE4&style=flat&label=Visitors" />
 </p>
 
 ---
