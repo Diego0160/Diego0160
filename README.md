@@ -28,7 +28,7 @@
 ## GitHub Trophies
 
 <p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=Diego0160&theme=onedark&no-frame=true&no-bg=true&margin-w=4" width="100%" />
+  <img src="https://github-profile-trophy.vercel.app/?username=Diego0160&theme=flat&no-bg=true" width="100%" />
 </p>
 
 ---
@@ -114,7 +114,7 @@
 ---
 
 <div align="center">
-  <sub><i>Generated with ❄️ Nix · 2026-05-28 17:34 UTC</i></sub>
+  <sub><i>Generated with ❄️ Nix · 2026-05-28 18:49 UTC</i></sub>
   <br>
   <sub>
     <a href="https://github.com/Diego0160/Diego0160">Source</a>
@@ -125,7 +125,7 @@
   </sub>
   <br>
   <sub>
-    <a href="https://ko-fi.com/diego0160">
+    <a href="https://ko-fi.com/thealtd">
       <img src="https://ko-fi.com/img/githubbutton_sm.svg" height="30" />
     </a>
   </sub>
