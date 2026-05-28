@@ -74,6 +74,12 @@
     <td><sub><code>2026-05-28</code></sub></td>
   </tr>
   <tr>
+    <td>📤</td>
+    <td><sub><b>Diego0160</b>/Diego0160</sub></td>
+    <td><sub>0 commits</sub></td>
+    <td><sub><code>2026-05-28</code></sub></td>
+  </tr>
+  <tr>
     <td>✨</td>
     <td><sub><b>Diego0160</b>/Diego0160</sub></td>
     <td><sub>created branch main</sub></td>
@@ -91,12 +97,6 @@
     <td><sub>opened PR #10 · </sub></td>
     <td><sub><code>2026-05-26</code></sub></td>
   </tr>
-  <tr>
-    <td>🐛</td>
-    <td><sub><b>Eaquo</b>/quickshell-games-launchers</sub></td>
-    <td><sub>closed issue #9 · Extensive optimizations and features based on olde</sub></td>
-    <td><sub><code>2026-05-26</code></sub></td>
-  </tr>
 
 </table>
 
@@ -105,8 +105,8 @@
 ## Spotify
 
 <p align="center">
-  <a href="https://open.spotify.com/user/31xeyrnyhnslgituoph2rdn7j5ym">
-    <img src="https://spotify-github-profile.vercel.app/api/view?uid=31xeyrnyhnslgituoph2rdn7j5ym&cover_image=true&theme=compact&show_offline=false&background_color=121212&interchange=false&bar_color=1DB954&bar_color_cover=true" />
+  <a href="https://spotify-github-profile.kittinanx.com/api/view?uid=31xeyrnyhnslgituoph2rdn7j5ym&redirect=true">
+    <img src="https://spotify-github-profile.kittinanx.com/api/view?uid=31xeyrnyhnslgituoph2rdn7j5ym&cover_image=true&theme=spotify-embed&show_offline=true&background_color=121212&interchange=false&bar_color=53b14f&bar_color_cover=true&mode=dark" />
   </a>
 </p>
 
@@ -121,7 +121,7 @@
 ---
 
 <div align="center">
-  <sub><i>Generated with ❄️ Nix · 2026-05-28 14:17 UTC</i></sub>
+  <sub><i>Generated with ❄️ Nix · 2026-05-28 14:27 UTC</i></sub>
   <br>
   <sub>
     <a href="https://github.com/Diego0160/Diego0160">Source</a>
