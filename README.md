@@ -4,14 +4,16 @@
 [![](https://img.shields.io/badge/Nix-7EBAE4?style=flat&logo=nixos&logoColor=white)](https://nixos.org/)
 [![](https://img.shields.io/badge/QML-44A51C?style=flat&logo=qt&logoColor=white)](https://doc.qt.io/qt-6/qtqml-index.html)
 [![](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)](https://python.org/)
-[![](https://img.shields.io/badge/Hyprland-58E0A0?style=flat&logo=hyprland&logoColor=white)](https://hyprland.org/)
+[![](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![](https://img.shields.io/badge/Haxe-EA8220?style=flat&logo=haxe&logoColor=white)](https://haxe.org/)
+[![](https://img.shields.io/badge/Hyprland-00C1D4?style=flat&logo=hyprland&logoColor=white)](https://hyprland.org/)
 
 ---
 
 
 | | |
 |---|---|
-| <img src="https://avatars.githubusercontent.com/u/91231627?v=4" width="120" height="120" /> | **Diego0160**<br><br>![](https://img.shields.io/badge/Nix-7EBAE4?style=flat&logo=nixos) ![](https://img.shields.io/badge/QML-44A51C?style=flat&logo=qt) ![](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python) ![](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript) ![](https://img.shields.io/badge/Haxe-EA8220?style=flat&logo=haxe)<br><br>**OS** NixOS ❄️ / Arch 🐉 · **WM** Hyprland<br>**Repos** 8 public · 4 active<br>**Stars** 0 · **Forks** 0<br>**Followers** 4 · **Following** 6 |
+| <img src="https://avatars.githubusercontent.com/u/91231627?v=4" width="120" height="120" /> | **Diego0160**<br><br>![](https://img.shields.io/badge/Nix-7EBAE4?style=flat&logo=nixos) ![](https://img.shields.io/badge/QML-44A51C?style=flat&logo=qt) ![](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python) ![](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript) ![](https://img.shields.io/badge/Haxe-EA8220?style=flat&logo=haxe) ![](https://img.shields.io/badge/Hyprland-00C1D4?style=flat&logo=hyprland)<br><br>**OS** NixOS ❄️ / Arch 🐉 · **WM** Hyprland<br>**Repos** 8 public · 4 active<br>**Stars** 0 · **Forks** 0<br>**Followers** 4 · **Following** 6 |
 
 
 </div>
@@ -52,31 +54,31 @@
   <tr>
     <td>📤</td>
     <td><sub><b>Diego0160</b>/Diego0160</sub></td>
-    <td><sub>0 commits</sub></td>
+    <td><sub>pushed changes · 0c5e419</sub></td>
     <td><sub><code>2026-05-28</code></sub></td>
   </tr>
   <tr>
     <td>📤</td>
     <td><sub><b>Diego0160</b>/Diego0160</sub></td>
-    <td><sub>0 commits</sub></td>
+    <td><sub>pushed changes · b88d7f9</sub></td>
     <td><sub><code>2026-05-28</code></sub></td>
   </tr>
   <tr>
     <td>📤</td>
     <td><sub><b>Diego0160</b>/Diego0160</sub></td>
-    <td><sub>0 commits</sub></td>
+    <td><sub>pushed changes · 95edfb9</sub></td>
     <td><sub><code>2026-05-28</code></sub></td>
   </tr>
   <tr>
     <td>📤</td>
     <td><sub><b>Diego0160</b>/Diego0160</sub></td>
-    <td><sub>0 commits</sub></td>
+    <td><sub>pushed changes · 89fc8de</sub></td>
     <td><sub><code>2026-05-28</code></sub></td>
   </tr>
   <tr>
     <td>📤</td>
     <td><sub><b>Diego0160</b>/Diego0160</sub></td>
-    <td><sub>0 commits</sub></td>
+    <td><sub>pushed changes · 98d2e88</sub></td>
     <td><sub><code>2026-05-28</code></sub></td>
   </tr>
   <tr>
@@ -121,7 +123,7 @@
 ---
 
 <div align="center">
-  <sub><i>Generated with ❄️ Nix · 2026-05-28 14:27 UTC</i></sub>
+  <sub><i>Generated with ❄️ Nix · 2026-05-28 17:23 UTC</i></sub>
   <br>
   <sub>
     <a href="https://github.com/Diego0160/Diego0160">Source</a>

@@ -65,11 +65,21 @@ def get_recent_activity(username, token=None):
         item = {"type": type_, "repo": repo, "date": created}
 
         if type_ == "PushEvent":
+            size = payload.get("size")
             commits = payload.get("commits", [])
-            item["desc"] = f"{len(commits)} commit{'' if len(commits)==1 else 's'}"
+            count = size if size is not None else len(commits)
+            
+            if count == 0 and not commits:
+                # Fallback if both are missing/zero, but it's a push
+                item["desc"] = "pushed changes"
+            else:
+                item["desc"] = f"{count} commit{'' if count==1 else 's'}"
+                
             if commits:
                 msg = commits[-1].get("message", "").split("\n")[0]
                 item["desc"] += f" · {msg[:50]}"
+            elif payload.get("head"):
+                item["desc"] += f" · {payload['head'][:7]}"
         elif type_ == "IssuesEvent":
             action = payload.get("action", "")
             issue = payload.get("issue", {})
@@ -185,7 +195,7 @@ def render_template(template_path, stats):
 
     tech_badges = " ".join(
         f"![](https://img.shields.io/badge/{t}-{_lang_color(t)}?style=flat&logo={_lang_logo(t)})"
-        for t in ["Nix", "QML", "Python", "TypeScript", "Haxe"]
+        for t in ["Nix", "QML", "Python", "TypeScript", "Haxe", "Hyprland"]
     )
 
     neofetch_lines = f"""
@@ -247,6 +257,7 @@ def _lang_color(lang):
         "CSS": "1572B6",
         "Lua": "2C2D72",
         "Rust": "000000",
+        "Hyprland": "00C1D4",
     }
     return colors.get(lang, "555555")
 
@@ -268,6 +279,7 @@ def _lang_logo(lang):
         "CSS": "css3",
         "Lua": "lua",
         "Rust": "rust",
+        "Hyprland": "hyprland",
     }
     return logos.get(lang, "github")
 

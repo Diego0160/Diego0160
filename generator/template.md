@@ -4,7 +4,9 @@
 [![](https://img.shields.io/badge/Nix-7EBAE4?style=flat&logo=nixos&logoColor=white)](https://nixos.org/)
 [![](https://img.shields.io/badge/QML-44A51C?style=flat&logo=qt&logoColor=white)](https://doc.qt.io/qt-6/qtqml-index.html)
 [![](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)](https://python.org/)
-[![](https://img.shields.io/badge/Hyprland-58E0A0?style=flat&logo=hyprland&logoColor=white)](https://hyprland.org/)
+[![](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![](https://img.shields.io/badge/Haxe-EA8220?style=flat&logo=haxe&logoColor=white)](https://haxe.org/)
+[![](https://img.shields.io/badge/Hyprland-00C1D4?style=flat&logo=hyprland&logoColor=white)](https://hyprland.org/)
 
 ---
 
