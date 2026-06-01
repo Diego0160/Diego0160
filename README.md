@@ -111,6 +111,10 @@
   </a>
 </p>
 
+<p align="center">
+  <img src="https://spotify-recently-played-readme.vercel.app/api?user=31xeyrnyhnslgituoph2rdn7j5ym&count=5&unique=true&width=700" />
+</p>
+
 ---
 
 ## Contribution Snake
@@ -122,7 +126,7 @@
 ---
 
 <div align="center">
-  <sub><i>Generated with ❄️ Nix · 2026-06-01 01:07 UTC</i></sub>
+  <sub><i>Generated with ❄️ Nix · 2026-06-01 01:08 UTC</i></sub>
   <br>
   <sub>
     <a href="https://github.com/Diego0160/Diego0160">Source</a>

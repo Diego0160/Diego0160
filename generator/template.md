@@ -59,6 +59,10 @@
   </a>
 </p>
 
+<p align="center">
+  <img src="https://spotify-recently-played-readme.vercel.app/api?user={{ spotify_user }}&count=5&unique=true&width=700" />
+</p>
+
 ---
 
 ## Contribution Snake
