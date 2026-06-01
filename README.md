@@ -42,6 +42,12 @@
   </thead>
   <tbody>
   <tr>
+    <td>📤</td>
+    <td><sub><b>Diego0160</b>/Diego0160</sub></td>
+    <td><sub>pushed changes · 62d5e12</sub></td>
+    <td><sub><code>2026-06-01</code></sub></td>
+  </tr>
+  <tr>
     <td>🔄</td>
     <td><sub><b>Eaquo</b>/quickshell-games-launchers</sub></td>
     <td><sub>closed PR #10 · </sub></td>
@@ -81,12 +87,6 @@
     <td>📤</td>
     <td><sub><b>Diego0160</b>/Diego0160</sub></td>
     <td><sub>pushed changes · ee7e9a5</sub></td>
-    <td><sub><code>2026-05-28</code></sub></td>
-  </tr>
-  <tr>
-    <td>📤</td>
-    <td><sub><b>Diego0160</b>/Diego0160</sub></td>
-    <td><sub>pushed changes · 0c5e419</sub></td>
     <td><sub><code>2026-05-28</code></sub></td>
   </tr>
 
