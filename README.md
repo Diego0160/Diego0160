@@ -42,6 +42,12 @@
   </thead>
   <tbody>
   <tr>
+    <td>⭐</td>
+    <td><sub><b>ilyamiro</b>/nixos-configuration</sub></td>
+    <td><sub>starred</sub></td>
+    <td><sub><code>2026-06-04</code></sub></td>
+  </tr>
+  <tr>
     <td>📤</td>
     <td><sub><b>Diego0160</b>/Diego0160</sub></td>
     <td><sub>pushed changes · 156f4f6</sub></td>
@@ -83,12 +89,6 @@
     <td><sub>pushed changes · 362e5e3</sub></td>
     <td><sub><code>2026-05-28</code></sub></td>
   </tr>
-  <tr>
-    <td>📤</td>
-    <td><sub><b>Diego0160</b>/Diego0160</sub></td>
-    <td><sub>pushed changes · 10e3a80</sub></td>
-    <td><sub><code>2026-05-28</code></sub></td>
-  </tr>
 
   </tbody>
 </table>
@@ -126,7 +126,7 @@
 ---
 
 <div align="center">
-  <sub><i>Generated with ❄️ Nix · 2026-06-04 09:54 UTC</i></sub>
+  <sub><i>Generated with ❄️ Nix · 2026-06-04 14:58 UTC</i></sub>
   <br>
   <sub>
     <a href="https://github.com/Diego0160/Diego0160">Source</a>
