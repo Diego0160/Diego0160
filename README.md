@@ -42,6 +42,12 @@
   </thead>
   <tbody>
   <tr>
+    <td>📤</td>
+    <td><sub><b>Diego0160</b>/quickshell-games-launchers</sub></td>
+    <td><sub>pushed changes · 44efe30</sub></td>
+    <td><sub><code>2026-06-26</code></sub></td>
+  </tr>
+  <tr>
     <td>⭐</td>
     <td><sub><b>Hope2333</b>/opencode-termux</sub></td>
     <td><sub>starred</sub></td>
@@ -83,12 +89,6 @@
     <td><sub>pushed changes · c8fd2fc</sub></td>
     <td><sub><code>2026-05-28</code></sub></td>
   </tr>
-  <tr>
-    <td>📤</td>
-    <td><sub><b>Diego0160</b>/Diego0160</sub></td>
-    <td><sub>pushed changes · 41a6594</sub></td>
-    <td><sub><code>2026-05-28</code></sub></td>
-  </tr>
 
   </tbody>
 </table>
@@ -126,7 +126,7 @@
 ---
 
 <div align="center">
-  <sub><i>Generated with ❄️ Nix · 2026-06-25 19:58 UTC</i></sub>
+  <sub><i>Generated with ❄️ Nix · 2026-06-26 03:34 UTC</i></sub>
   <br>
   <sub>
     <a href="https://github.com/Diego0160/Diego0160">Source</a>
