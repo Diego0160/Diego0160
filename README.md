@@ -65,24 +65,6 @@
     <td><sub>starred</sub></td>
     <td><sub><code>2026-06-04</code></sub></td>
   </tr>
-  <tr>
-    <td>📤</td>
-    <td><sub><b>Diego0160</b>/Diego0160</sub></td>
-    <td><sub>pushed changes · 156f4f6</sub></td>
-    <td><sub><code>2026-06-01</code></sub></td>
-  </tr>
-  <tr>
-    <td>📤</td>
-    <td><sub><b>Diego0160</b>/Diego0160</sub></td>
-    <td><sub>pushed changes · 62d5e12</sub></td>
-    <td><sub><code>2026-06-01</code></sub></td>
-  </tr>
-  <tr>
-    <td>🔄</td>
-    <td><sub><b>Eaquo</b>/quickshell-games-launchers</sub></td>
-    <td><sub>closed PR #10 · </sub></td>
-    <td><sub><code>2026-05-27</code></sub></td>
-  </tr>
 
   </tbody>
 </table>
@@ -120,7 +102,7 @@
 ---
 
 <div align="center">
-  <sub><i>Generated with ❄️ Nix · 2026-07-01 03:41 UTC</i></sub>
+  <sub><i>Generated with ❄️ Nix · 2026-07-01 09:42 UTC</i></sub>
   <br>
   <sub>
     <a href="https://github.com/Diego0160/Diego0160">Source</a>
