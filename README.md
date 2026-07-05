@@ -59,12 +59,6 @@
     <td><sub>pushed changes · a9adaaf</sub></td>
     <td><sub><code>2026-06-15</code></sub></td>
   </tr>
-  <tr>
-    <td>⭐</td>
-    <td><sub><b>ilyamiro</b>/nixos-configuration</sub></td>
-    <td><sub>starred</sub></td>
-    <td><sub><code>2026-06-04</code></sub></td>
-  </tr>
 
   </tbody>
 </table>
@@ -102,7 +96,7 @@
 ---
 
 <div align="center">
-  <sub><i>Generated with ❄️ Nix · 2026-07-04 19:09 UTC</i></sub>
+  <sub><i>Generated with ❄️ Nix · 2026-07-05 02:56 UTC</i></sub>
   <br>
   <sub>
     <a href="https://github.com/Diego0160/Diego0160">Source</a>
