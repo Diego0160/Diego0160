@@ -53,12 +53,6 @@
     <td><sub>starred</sub></td>
     <td><sub><code>2026-06-16</code></sub></td>
   </tr>
-  <tr>
-    <td>📤</td>
-    <td><sub><b>Diego0160</b>/quickshell-games-launchers</sub></td>
-    <td><sub>pushed changes · a9adaaf</sub></td>
-    <td><sub><code>2026-06-15</code></sub></td>
-  </tr>
 
   </tbody>
 </table>
@@ -96,7 +90,7 @@
 ---
 
 <div align="center">
-  <sub><i>Generated with ❄️ Nix · 2026-07-15 02:20 UTC</i></sub>
+  <sub><i>Generated with ❄️ Nix · 2026-07-15 08:06 UTC</i></sub>
   <br>
   <sub>
     <a href="https://github.com/Diego0160/Diego0160">Source</a>
