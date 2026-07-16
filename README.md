@@ -47,12 +47,6 @@
     <td><sub>pushed changes · 44efe30</sub></td>
     <td><sub><code>2026-06-26</code></sub></td>
   </tr>
-  <tr>
-    <td>⭐</td>
-    <td><sub><b>Hope2333</b>/opencode-termux</sub></td>
-    <td><sub>starred</sub></td>
-    <td><sub><code>2026-06-16</code></sub></td>
-  </tr>
 
   </tbody>
 </table>
@@ -90,7 +84,7 @@
 ---
 
 <div align="center">
-  <sub><i>Generated with ❄️ Nix · 2026-07-16 02:27 UTC</i></sub>
+  <sub><i>Generated with ❄️ Nix · 2026-07-16 08:10 UTC</i></sub>
   <br>
   <sub>
     <a href="https://github.com/Diego0160/Diego0160">Source</a>
