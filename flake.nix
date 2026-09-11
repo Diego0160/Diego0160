@@ -12,19 +12,17 @@
         pkgs = nixpkgs.legacyPackages.${system};
       in
       {
-        packages.profile-readme = pkgs.stdenv.mkDerivation {
+        # The build only *prepares* the generator script. Execution happens
+        # via `nix run`, outside the Nix sandbox, so GITHUB_TOKEN from the
+        # runner environment is available to the script at runtime.
+        packages.profile-readme = pkgs.writeShellApplication {
           name = "profile-readme";
-          src = self;
-          buildInputs = [ pkgs.python3 ];
-          buildPhase = ''
-            GITHUB_TOKEN="''${GITHUB_TOKEN:-}" \
-            python generator/generate.py \
+          runtimeInputs = [ pkgs.python3 ];
+          text = ''
+            python3 ${./generator/generate.py} \
               --username Diego0160 \
-              --template generator/template.md \
-              --output $out/README.md
-          '';
-          installPhase = ''
-            true
+              --template ${./generator/template.md} \
+              --output README.md
           '';
         };
 

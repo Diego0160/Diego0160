@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Generate GitHub profile README from GitHub API data."""
+"""Generate GitHub profile README from GitHub API data.
+
+Built with Nix: run via `nix run .#profile-readme` so the generator is
+declared as a Nix dependency and GITHUB_TOKEN is available at runtime
+(outside the Nix sandbox).
+"""
 
 import argparse
 import json
@@ -9,6 +14,9 @@ import urllib.error
 from datetime import datetime, timezone
 
 SPOTIFY_USER = "31xeyrnyhnslgituoph2rdn7j5ym"
+
+# Repos that reflect the user's Nix/Qt stack (featured section)
+FEATURED_KEYWORDS = ("quickshell", "sddm", "caelestia", "dots", "nix")
 
 
 def api_get(endpoint, token=None):
@@ -68,13 +76,12 @@ def get_recent_activity(username, token=None):
             size = payload.get("size")
             commits = payload.get("commits", [])
             count = size if size is not None else len(commits)
-            
+
             if count == 0 and not commits:
-                # Fallback if both are missing/zero, but it's a push
                 item["desc"] = "pushed changes"
             else:
                 item["desc"] = f"{count} commit{'' if count==1 else 's'}"
-                
+
             if commits:
                 msg = commits[-1].get("message", "").split("\n")[0]
                 item["desc"] += f" · {msg[:50]}"
@@ -113,6 +120,26 @@ def get_recent_activity(username, token=None):
     return items[:8]
 
 
+def get_featured_repos(repos):
+    """Select repos that reflect the Nix/Qt stack (QML language or keyword match)."""
+    featured = []
+    for repo in repos:
+        name = repo.get("name", "")
+        lang = repo.get("language") or ""
+        if lang == "QML" or any(k in name.lower() for k in FEATURED_KEYWORDS):
+            featured.append({
+                "name": name,
+                "html_url": repo.get("html_url", f"https://github.com/{repo.get('full_name', '')}"),
+                "description": repo.get("description") or "",
+                "language": lang,
+                "stars": repo.get("stargazers_count", 0),
+                "forks": repo.get("forks_count", 0),
+                "updated_at": repo.get("updated_at", ""),
+            })
+    featured.sort(key=lambda r: r["updated_at"], reverse=True)
+    return featured[:6]
+
+
 def get_readme_stats(username, token=None):
     user = get_user(username, token=token)
     repos = get_repos(username, token=token)
@@ -132,6 +159,7 @@ def get_readme_stats(username, token=None):
         "total_stars": 0,
         "total_forks": 0,
         "activity": [],
+        "featured": [],
         "spotify_user": SPOTIFY_USER,
         "updated": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
     }
@@ -173,6 +201,7 @@ def get_readme_stats(username, token=None):
         base["repo_count"] = repo_count
         base["total_stars"] = total_stars
         base["total_forks"] = total_forks
+        base["featured"] = get_featured_repos(repos)
 
     base["activity"] = get_recent_activity(username, token=token)
 
@@ -201,9 +230,13 @@ def render_template(template_path, stats):
     neofetch_lines = f"""
 | | |
 |---|---|
-| <img src="{avatar}" width="120" height="120" /> | **{stats['name']}**<br><br>{tech_badges}<br><br>**OS** NixOS ❄️ / Arch 🐉 · **WM** Hyprland<br>**Repos** {stats['public_repos']} public · {stats['repo_count']} active<br>**Stars** {stats['total_stars']} · **Forks** {stats['total_forks']}<br>**Followers** {stats['followers']} · **Following** {stats['following']} |
+| <img src="{avatar}" width="120" height="120" /> | **{stats['name']}**<br><br>{tech_badges}<br><br>**OS** NixOS / Arch · **WM** Hyprland<br>**Repos** {stats['public_repos']} public · {stats['repo_count']} active<br>**Stars** {stats['total_stars']} · **Forks** {stats['total_forks']}<br>**Followers** {stats['followers']} · **Following** {stats['following']} |
 """
     ctx["neofetch"] = neofetch_lines
+
+    ctx["tech_icons"] = render_tech_icons()
+
+    ctx["featured_rows"] = render_featured(stats["featured"])
 
     activity_lines = ""
     if stats["activity"]:
@@ -222,6 +255,69 @@ def render_template(template_path, stats):
     return result
 
 
+def render_tech_icons():
+    """Skill icons with per-icon tooltips (title attribute survives GitHub's sanitizer)."""
+    skills = [
+        ("nix", "NixOS"),
+        ("qt", "Qt / QML"),
+        ("python", "Python"),
+        ("typescript", "TypeScript"),
+        ("haxe", "Haxe"),
+        ("linux", "Linux"),
+    ]
+    return "\n".join(
+        f'  <img src="https://skillicons.dev/icons?i={icon}&theme=dark" title="{label}" alt="{label}" width="48" height="48" />'
+        for icon, label in skills
+    )
+
+
+def render_featured(repos):
+    if not repos:
+        return "  <tr><td colspan='4' align='center'><sub>No featured projects</sub></td></tr>"
+    rows = ""
+    for r in repos:
+        desc = (r["description"] or "No description")[:60]
+        stars = r["stars"]
+        forks = r["forks"]
+        meta = f"{desc} · ⭐ {stars} · 🍴 {forks}" if stars or forks else desc
+        rows += (
+            f"  <tr>\n"
+            f"    <td>{_lang_icon(r['language'])}</td>\n"
+            f"    <td><sub><b><a href='{r['html_url']}'>{r['name']}</a></b></sub></td>\n"
+            f"    <td><sub>{meta}</sub></td>\n"
+            f"    <td><sub><code>{r['language'] or '-'}</code></sub></td>\n"
+            f"  </tr>\n"
+        )
+    return rows
+
+
+def generate_banner(output_dir="."):
+    """Generate an animated SVG banner (CSS keyframes — GitHub renders these natively)."""
+    svg = '''<svg xmlns="http://www.w3.org/2000/svg" width="800" height="200" viewBox="0 0 800 200">
+  <defs>
+    <linearGradient id="nixQt" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7EBAE4"/>
+      <stop offset="100%" stop-color="#44A51C"/>
+    </linearGradient>
+    <style>
+      @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+      @keyframes slideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+      .title { animation: fadeIn 1.2s ease-out both; }
+      .subtitle { animation: slideUp 1s ease-out 0.6s both; }
+    </style>
+  </defs>
+  <rect width="800" height="200" rx="14" fill="#0d1117"/>
+  <rect x="0" y="0" width="800" height="4" fill="url(#nixQt)"/>
+  <text x="400" y="104" text-anchor="middle" font-family="'Fira Code', 'JetBrains Mono', monospace" font-size="52" font-weight="700" fill="url(#nixQt)" class="title">Diego0160</text>
+  <text x="400" y="146" text-anchor="middle" font-family="'Fira Code', monospace" font-size="17" fill="#8b949e" class="subtitle">NixOS &#183; Quickshell &#183; QML &#183; Hyprland</text>
+</svg>
+'''
+    path = os.path.join(output_dir, "banner.svg")
+    with open(path, "w") as f:
+        f.write(svg)
+    print(f"[*] Banner written: {path}")
+
+
 def _event_icon(type_):
     icons = {
         "PushEvent": "📤",
@@ -238,6 +334,27 @@ def _event_icon(type_):
         "MemberEvent": "👤",
     }
     return icons.get(type_, "🔹")
+
+
+def _lang_icon(lang):
+    icons = {
+        "QML": "🎨",
+        "Nix": "❄️",
+        "Python": "🐍",
+        "TypeScript": "🔷",
+        "Haxe": "🎮",
+        "HTML": "🌐",
+        "JavaScript": "🟨",
+        "Shell": "🐚",
+        "Rust": "🦀",
+        "C++": "⚙️",
+        "C": "🔧",
+        "Lua": "🌙",
+        "Java": "☕",
+        "Kotlin": "🟣",
+        "CSS": "🎨",
+    }
+    return icons.get(lang, "📦")
 
 
 def _lang_color(lang):
@@ -304,9 +421,12 @@ def main():
     with open(args.output, "w") as f:
         f.write(readme)
 
+    generate_banner(os.path.dirname(args.output) or ".")
+
     print(f"[*] Done: {args.output}")
     print(f"    API returned: name={stats['name']}, repos={stats['repo_count']}, "
-          f"followers={stats['followers']}, activity={len(stats['activity'])}")
+          f"followers={stats['followers']}, activity={len(stats['activity'])}, "
+          f"featured={len(stats['featured'])}")
 
 
 main()

@@ -1,8 +1,20 @@
 <div align="center">
+  <img src="banner.svg" width="100%" alt="Diego0160" />
+  <br />
+  <img src="https://readme-typing-svg.demolab.com/?lines=NixOS+%2F+Arch;Quickshell+%2F+QML+%2F+Qt;Hyprland;Crafting+UIs+with+QML&font=Fira+Code&center=true&width=520&height=45&color=7EBAE4&vCenter=true&pause=1000" alt="Typing SVG" />
+</div>
+
+---
 
 {{ neofetch }}
 
-</div>
+---
+
+## Tech Stack
+
+<p align="center">
+{{ tech_icons }}
+</p>
 
 ---
 
@@ -13,13 +25,31 @@
   <img src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username={{ name }}&layout=compact&theme=vue-dark&hide_border=true&langs_count=8" height="165" />
 </p>
 
+<p align="center">
+  <img src="https://streak-stats.demolab.com/?user={{ name }}&theme=vue-dark&hide_border=true" height="165" />
+</p>
+
 ---
 
-## GitHub Trophies
+## Featured Projects
 
-<p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username={{ name }}&theme=flat&no-bg=true&margin-w=4" width="100%" />
-</p>
+<div align="center">
+
+<table style="width: 100%; table-layout: auto;">
+  <thead>
+    <tr>
+      <th width="5%"></th>
+      <th width="30%" align="left">Repository</th>
+      <th width="50%" align="left">Description</th>
+      <th width="15%" align="left">Language</th>
+    </tr>
+  </thead>
+  <tbody>
+{{ featured_rows }}
+  </tbody>
+</table>
+
+</div>
 
 ---
 
@@ -45,13 +75,7 @@
 
 ---
 
-## Activity Status
-
-<p align="center">
-  <a href="https://discord.com/users/717906950005719091">
-    <img src="https://lanyard.websrv.dependabot.com/api/details/717906950005719091?theme=dark&bg=121212" />
-  </a>
-</p>
+## Now Playing
 
 <p align="center">
   <a href="https://spotify-github-profile.kittinanx.com/api/view?uid={{ spotify_user }}&redirect=true">
@@ -74,7 +98,7 @@
 ---
 
 <div align="center">
-  <sub><i>Generated with ❄️ Nix · {{ updated }}</i></sub>
+  <sub><i>Generated with Nix</i></sub>
   <br>
   <sub>
     <a href="https://github.com/{{ name }}/{{ name }}">Source</a>
@@ -82,6 +106,10 @@
     <a href="https://nixos.org">NixOS</a>
     ·
     <a href="https://quickshell.outfoxxed.me">Quickshell</a>
+  </sub>
+  <br>
+  <sub>
+    <img src="https://komarev.com/ghpvc/?username={{ name }}&color=7EBAE4&style=flat" alt="Profile views" />
   </sub>
   <br>
   <sub>
