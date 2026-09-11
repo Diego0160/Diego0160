@@ -9,7 +9,7 @@
 
 | | |
 |---|---|
-| <img src="https://avatars.githubusercontent.com/u/91231627?v=4" width="120" height="120" /> | **Diego0160**<br><br>![](https://img.shields.io/badge/Nix-7EBAE4?style=flat&logo=nixos) ![](https://img.shields.io/badge/QML-44A51C?style=flat&logo=qt) ![](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python) ![](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript) ![](https://img.shields.io/badge/Haxe-EA8220?style=flat&logo=haxe) ![](https://img.shields.io/badge/Hyprland-00C1D4?style=flat&logo=hyprland)<br><br>**OS** NixOS ❄️ / Arch 🐉 · **WM** Hyprland<br>**Repos** 9 public · 4 active<br>**Stars** 0 · **Forks** 0<br>**Followers** 4 · **Following** 6 |
+| <img src="https://avatars.githubusercontent.com/u/91231627?v=4" width="120" height="120" /> | **Diego0160**<br><br>![](https://img.shields.io/badge/Nix-7EBAE4?style=flat&logo=nixos) ![](https://img.shields.io/badge/QML-44A51C?style=flat&logo=qt) ![](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python) ![](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript) ![](https://img.shields.io/badge/Haxe-EA8220?style=flat&logo=haxe) ![](https://img.shields.io/badge/Hyprland-00C1D4?style=flat&logo=hyprland)<br><br>**OS** NixOS / Arch · **WM** Hyprland<br>**Repos** 9 public · 4 active<br>**Stars** 0 · **Forks** 0<br>**Followers** 4 · **Following** 6 |
 
 
 ---
@@ -137,7 +137,7 @@
 ---
 
 <div align="center">
-  <sub><i>Generated with ❄️ Nix · 2026-09-11 03:04 UTC</i></sub>
+  <sub><i>Generated with Nix</i></sub>
   <br>
   <sub>
     <a href="https://github.com/Diego0160/Diego0160">Source</a>
