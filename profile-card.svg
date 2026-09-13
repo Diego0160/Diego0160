@@ -36,7 +36,7 @@
   <text class="stat" x="150" y="202" font-family="'Fira Code', monospace" font-size="13" fill="#8b949e">Fork's Count:</text>
   <text class="stat" x="300" y="202" font-family="'Fira Code', monospace" font-size="13" font-weight="600" fill="#e6edf3" text-anchor="end">0</text>
   <text class="stat" x="150" y="228" font-family="'Fira Code', monospace" font-size="13" fill="#8b949e">Commit's Count:</text>
-  <text class="stat" x="300" y="228" font-family="'Fira Code', monospace" font-size="13" font-weight="600" fill="#e6edf3" text-anchor="end">189</text>
+  <text class="stat" x="300" y="228" font-family="'Fira Code', monospace" font-size="13" font-weight="600" fill="#e6edf3" text-anchor="end">190</text>
 
   <text class="stat" x="330" y="150" font-family="'Fira Code', monospace" font-size="13" fill="#8b949e">Total PRs:</text>
   <text class="stat" x="480" y="150" font-family="'Fira Code', monospace" font-size="13" font-weight="600" fill="#e6edf3" text-anchor="end">3</text>
