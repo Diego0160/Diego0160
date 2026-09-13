@@ -1,7 +1,5 @@
 <div align="center">
   <img src="profile-card.svg" width="100%" alt="GitHub Stats" />
-  <br />
-  <img src="https://readme-typing-svg.demolab.com/?lines=NixOS+%2F+Arch;Quickshell+%2F+QML+%2F+Qt;Hyprland;Crafting+UIs+with+QML&font=Fira+Code&center=true&width=520&height=45&color=7EBAE4&vCenter=true&pause=1000" alt="Typing SVG" />
 </div>
 
 ---

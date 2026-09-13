@@ -7,7 +7,6 @@ declared as a Nix dependency and GITHUB_TOKEN is available at runtime
 """
 
 import argparse
-import base64
 import json
 import os
 import urllib.request
@@ -345,32 +344,13 @@ def render_featured(repos):
     return rows
 
 
-def fetch_avatar_base64(url):
-    """Download the avatar and return it as a base64 data URI.
-
-    GitHub's README sanitizer strips external <image> references inside SVG,
-    so the avatar must be embedded inline. Fetched at 180px to keep the SVG small.
-    """
-    sep = "&" if "?" in url else "?"
-    small = f"{url}{sep}s=180"
-    try:
-        with urllib.request.urlopen(small, timeout=15) as resp:
-            data = resp.read()
-            ctype = resp.headers.get("Content-Type", "image/png").split(";")[0]
-        return f"data:{ctype};base64," + base64.b64encode(data).decode()
-    except Exception as e:
-        print(f"  [warn] avatar fetch failed ({e}); falling back to external URL")
-        return url
-
-
 def generate_profile_card(stats, output_dir="."):
-    """Generate a profile card SVG: animated banner + avatar + username + stats.
+    """Generate a profile card SVG: animated banner + username + stats.
 
     One self-contained SVG (CSS keyframes — GitHub renders these natively).
-    Replaces the old banner + neofetch + external stats widgets.
+    No <image> element: GitHub's README sanitizer rejects both external URLs
+    and base64 data URIs inside SVG ("Invalid image source").
     """
-    avatar = stats["avatar_url"]
-    avatar_data = fetch_avatar_base64(avatar)
     handle = stats["username"]
     repos = stats["public_repos"]
     stars = stats["total_stars"]
@@ -408,9 +388,6 @@ def generate_profile_card(stats, output_dir="."):
       <stop offset="0%" stop-color="#7EBAE4"/>
       <stop offset="100%" stop-color="#44A51C"/>
     </linearGradient>
-    <clipPath id="avatarClip">
-      <circle cx="85" cy="105" r="45"/>
-    </clipPath>
     <clipPath id="barClip">
       <rect x="0" y="0" width="535" height="6"/>
     </clipPath>
@@ -429,10 +406,8 @@ def generate_profile_card(stats, output_dir="."):
     <rect x="0" y="0" width="535" height="6" fill="url(#nixQt)"/>
     <rect class="shimmer" x="0" y="0" width="180" height="6" fill="rgba(255,255,255,0.35)"/>
   </g>
-  <image xlink:href="{avatar_data}" href="{avatar_data}" x="40" y="60" width="90" height="90" clip-path="url(#avatarClip)"/>
-  <circle cx="85" cy="105" r="45" fill="none" stroke="url(#nixQt)" stroke-width="2"/>
-  <text class="username" x="150" y="95" font-family="'Fira Code', monospace" font-size="22" font-weight="700" fill="#7EBAE4">@{handle}</text>
-  <text x="150" y="118" font-family="'Fira Code', monospace" font-size="12" fill="#8b949e">GitHub Stats</text>
+  <text class="username" x="267" y="85" text-anchor="middle" font-family="'Fira Code', monospace" font-size="22" font-weight="700" fill="#7EBAE4">@{handle}</text>
+  <text x="267" y="110" text-anchor="middle" font-family="'Fira Code', monospace" font-size="12" fill="#8b949e">GitHub Stats</text>
 {stat_rows(left, 150, 150)}
 {stat_rows(right, 330, 150)}
 </svg>
