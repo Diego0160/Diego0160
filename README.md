@@ -1,4 +1,6 @@
 <div align="center">
+  <img src="https://avatars.githubusercontent.com/u/91231627?v=4" width="90" height="90" alt="Diego0160" />
+  <br />
   <img src="profile-card.svg" width="100%" alt="GitHub Stats" />
 </div>
 

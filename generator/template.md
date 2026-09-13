@@ -1,4 +1,6 @@
 <div align="center">
+  <img src="{{ avatar_url }}" width="90" height="90" alt="{{ name }}" />
+  <br />
   <img src="profile-card.svg" width="100%" alt="GitHub Stats" />
 </div>
 
