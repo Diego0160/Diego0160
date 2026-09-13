@@ -79,6 +79,12 @@
   <tr>
     <td>📤</td>
     <td><sub><b>Diego0160</b>/Diego0160</sub></td>
+    <td><sub>pushed changes · aeea864</sub></td>
+    <td><sub><code>2026-09-13</code></sub></td>
+  </tr>
+  <tr>
+    <td>📤</td>
+    <td><sub><b>Diego0160</b>/Diego0160</sub></td>
     <td><sub>pushed changes · 0ac7ae7</sub></td>
     <td><sub><code>2026-09-13</code></sub></td>
   </tr>
@@ -117,12 +123,6 @@
     <td><sub><b>Diego0160</b>/Diego0160</sub></td>
     <td><sub>pushed changes · 6483c0f</sub></td>
     <td><sub><code>2026-09-11</code></sub></td>
-  </tr>
-  <tr>
-    <td>📤</td>
-    <td><sub><b>Diego0160</b>/sddm-astronaut-theme</sub></td>
-    <td><sub>pushed changes · db8abc1</sub></td>
-    <td><sub><code>2026-09-10</code></sub></td>
   </tr>
 
   </tbody>
