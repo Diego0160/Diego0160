@@ -1,12 +1,8 @@
 <div align="center">
-  <img src="banner.svg" width="100%" alt="Diego0160" />
+  <img src="profile-card.svg" width="100%" alt="GitHub Stats" />
   <br />
   <img src="https://readme-typing-svg.demolab.com/?lines=NixOS+%2F+Arch;Quickshell+%2F+QML+%2F+Qt;Hyprland;Crafting+UIs+with+QML&font=Fira+Code&center=true&width=520&height=45&color=7EBAE4&vCenter=true&pause=1000" alt="Typing SVG" />
 </div>
-
----
-
-{{ neofetch }}
 
 ---
 
@@ -19,11 +15,6 @@
 ---
 
 ## GitHub Stats
-
-<p align="center">
-  <img src="https://github-readme-stats-eight-theta.vercel.app/api?username={{ name }}&show_icons=true&theme=vue-dark&hide_border=true&count_private=true" height="165" />
-  <img src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username={{ name }}&layout=compact&theme=vue-dark&hide_border=true&langs_count=8" height="165" />
-</p>
 
 <p align="center">
   <img src="https://streak-stats.demolab.com/?user={{ name }}&theme=vue-dark&hide_border=true" height="165" />

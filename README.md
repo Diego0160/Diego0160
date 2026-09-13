@@ -1,16 +1,8 @@
 <div align="center">
-  <img src="banner.svg" width="100%" alt="Diego0160" />
+  <img src="profile-card.svg" width="100%" alt="GitHub Stats" />
   <br />
   <img src="https://readme-typing-svg.demolab.com/?lines=NixOS+%2F+Arch;Quickshell+%2F+QML+%2F+Qt;Hyprland;Crafting+UIs+with+QML&font=Fira+Code&center=true&width=520&height=45&color=7EBAE4&vCenter=true&pause=1000" alt="Typing SVG" />
 </div>
-
----
-
-
-| | |
-|---|---|
-| <img src="https://avatars.githubusercontent.com/u/91231627?v=4" width="120" height="120" /> | **Diego0160**<br><br>![](https://img.shields.io/badge/Nix-7EBAE4?style=flat&logo=nixos) ![](https://img.shields.io/badge/QML-44A51C?style=flat&logo=qt) ![](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python) ![](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript) ![](https://img.shields.io/badge/Haxe-EA8220?style=flat&logo=haxe) ![](https://img.shields.io/badge/Hyprland-00C1D4?style=flat&logo=hyprland)<br><br>**OS** NixOS / Arch · **WM** Hyprland<br>**Repos** 9 public · 4 active<br>**Stars** 0 · **Forks** 0<br>**Followers** 4 · **Following** 6 |
-
 
 ---
 
@@ -28,11 +20,6 @@
 ---
 
 ## GitHub Stats
-
-<p align="center">
-  <img src="https://github-readme-stats-eight-theta.vercel.app/api?username=Diego0160&show_icons=true&theme=vue-dark&hide_border=true&count_private=true" height="165" />
-  <img src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=Diego0160&layout=compact&theme=vue-dark&hide_border=true&langs_count=8" height="165" />
-</p>
 
 <p align="center">
   <img src="https://streak-stats.demolab.com/?user=Diego0160&theme=vue-dark&hide_border=true" height="165" />

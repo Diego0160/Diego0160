@@ -37,6 +37,58 @@ def api_get(endpoint, token=None):
         return None
 
 
+def api_search_commits(username, token=None):
+    """Commit search needs the cloak-preview Accept header."""
+    url = f"https://api.github.com/search/commits?q=author:{username}&per_page=1"
+    req = urllib.request.Request(url)
+    req.add_header("Accept", "application/vnd.github.cloak-preview")
+    req.add_header("User-Agent", "profile-readme-generator")
+    if token:
+        req.add_header("Authorization", f"Bearer {token}")
+    try:
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            return json.loads(resp.read().decode())
+    except Exception as e:
+        print(f"  [warn] {e} for commit search")
+        return None
+
+
+def get_commit_count(username, token=None):
+    data = api_search_commits(username, token=token)
+    if data is None:
+        data = api_search_commits(username)
+    return (data or {}).get("total_count", 0)
+
+
+def get_pr_count(username, token=None):
+    data = api_get(f"/search/issues?q=author:{username}+type:pr&per_page=1", token=token)
+    if data is None:
+        data = api_get(f"/search/issues?q=author:{username}+type:pr&per_page=1")
+    return (data or {}).get("total_count", 0)
+
+
+def get_issue_count(username, token=None):
+    data = api_get(f"/search/issues?q=author:{username}+type:issue&per_page=1", token=token)
+    if data is None:
+        data = api_get(f"/search/issues?q=author:{username}+type:issue&per_page=1")
+    return (data or {}).get("total_count", 0)
+
+
+CONTRIB_EVENTS = {"PushEvent", "PullRequestEvent", "IssuesEvent",
+                  "IssueCommentEvent", "CreateEvent", "ReleaseEvent"}
+
+
+def get_contributed_count(events):
+    """Unique repos the user actually contributed to (recent public events)."""
+    repos = set()
+    for ev in events:
+        if ev.get("type") in CONTRIB_EVENTS:
+            repo = ev.get("repo", {}).get("name", "")
+            if repo:
+                repos.add(repo)
+    return len(repos)
+
+
 def get_user(username, token=None):
     data = api_get(f"/users/{username}", token=token)
     if data is None:
@@ -58,10 +110,11 @@ def get_languages(repo_full_name, token=None):
     return data or {}
 
 
-def get_recent_activity(username, token=None):
-    events = api_get(f"/users/{username}/events/public?per_page=10", token=token)
-    if not events:
-        events = api_get(f"/users/{username}/events/public?per_page=10")
+def get_recent_activity(username, token=None, events=None):
+    if events is None:
+        events = api_get(f"/users/{username}/events/public?per_page=10", token=token)
+        if not events:
+            events = api_get(f"/users/{username}/events/public?per_page=10")
     if not events:
         return []
     items = []
@@ -145,6 +198,7 @@ def get_readme_stats(username, token=None):
     repos = get_repos(username, token=token)
 
     base = {
+        "username": username,
         "name": username,
         "bio": "",
         "location": "",
@@ -158,6 +212,10 @@ def get_readme_stats(username, token=None):
         "repo_count": 0,
         "total_stars": 0,
         "total_forks": 0,
+        "commits": 0,
+        "prs": 0,
+        "issues": 0,
+        "contributed": 0,
         "activity": [],
         "featured": [],
         "spotify_user": SPOTIFY_USER,
@@ -203,7 +261,15 @@ def get_readme_stats(username, token=None):
         base["total_forks"] = total_forks
         base["featured"] = get_featured_repos(repos)
 
-    base["activity"] = get_recent_activity(username, token=token)
+    events = api_get(f"/users/{username}/events/public?per_page=10", token=token)
+    if not events:
+        events = api_get(f"/users/{username}/events/public?per_page=10")
+    base["activity"] = get_recent_activity(username, token=token, events=events)
+    base["contributed"] = get_contributed_count(events or [])
+
+    base["commits"] = get_commit_count(username, token=token)
+    base["prs"] = get_pr_count(username, token=token)
+    base["issues"] = get_issue_count(username, token=token)
 
     return base
 
@@ -213,26 +279,6 @@ def render_template(template_path, stats):
         template = f.read()
 
     ctx = {k: v for k, v in stats.items()}
-
-    lang_bar = " ".join(
-        f"![](https://img.shields.io/badge/{lang.replace(' ', '%20')}-{_lang_color(lang)}?style=flat&logo={_lang_logo(lang)})"
-        for lang in stats["top_languages"]
-    )
-    ctx["lang_badges"] = lang_bar
-
-    avatar = stats["avatar_url"]
-
-    tech_badges = " ".join(
-        f"![](https://img.shields.io/badge/{t}-{_lang_color(t)}?style=flat&logo={_lang_logo(t)})"
-        for t in ["Nix", "QML", "Python", "TypeScript", "Haxe", "Hyprland"]
-    )
-
-    neofetch_lines = f"""
-| | |
-|---|---|
-| <img src="{avatar}" width="120" height="120" /> | **{stats['name']}**<br><br>{tech_badges}<br><br>**OS** NixOS / Arch · **WM** Hyprland<br>**Repos** {stats['public_repos']} public · {stats['repo_count']} active<br>**Stars** {stats['total_stars']} · **Forks** {stats['total_forks']}<br>**Followers** {stats['followers']} · **Following** {stats['following']} |
-"""
-    ctx["neofetch"] = neofetch_lines
 
     ctx["tech_icons"] = render_tech_icons()
 
@@ -291,31 +337,83 @@ def render_featured(repos):
     return rows
 
 
-def generate_banner(output_dir="."):
-    """Generate an animated SVG banner (CSS keyframes — GitHub renders these natively)."""
-    svg = '''<svg xmlns="http://www.w3.org/2000/svg" width="800" height="200" viewBox="0 0 800 200">
+def generate_profile_card(stats, output_dir="."):
+    """Generate a profile card SVG: animated banner + avatar + username + stats.
+
+    One self-contained SVG (CSS keyframes — GitHub renders these natively).
+    Replaces the old banner + neofetch + external stats widgets.
+    """
+    avatar = stats["avatar_url"]
+    handle = stats["username"]
+    repos = stats["public_repos"]
+    stars = stats["total_stars"]
+    forks = stats["total_forks"]
+    commits = stats.get("commits", 0)
+    prs = stats.get("prs", 0)
+    issues = stats.get("issues", 0)
+    contributed = stats.get("contributed", 0)
+
+    left = [
+        ("Total Repository:", repos),
+        ("Star's Count:", stars),
+        ("Fork's Count:", forks),
+        ("Commit's Count:", commits),
+    ]
+    right = [
+        ("Total PRs:", prs),
+        ("Total Issues:", issues),
+        ("Contributed to:", contributed),
+    ]
+
+    def stat_rows(col, x, y_start):
+        rows = ""
+        for i, (label, value) in enumerate(col):
+            y = y_start + i * 26
+            rows += (
+                f'  <text class="stat" x="{x}" y="{y}" font-family="\'Fira Code\', monospace" font-size="13" fill="#8b949e">{label}</text>\n'
+                f'  <text class="stat" x="{x + 150}" y="{y}" font-family="\'Fira Code\', monospace" font-size="13" font-weight="600" fill="#e6edf3" text-anchor="end">{value}</text>\n'
+            )
+        return rows
+
+    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="535" height="290" viewBox="0 0 535 290" fill="none">
   <defs>
     <linearGradient id="nixQt" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#7EBAE4"/>
       <stop offset="100%" stop-color="#44A51C"/>
     </linearGradient>
+    <clipPath id="avatarClip">
+      <circle cx="85" cy="105" r="45"/>
+    </clipPath>
+    <clipPath id="barClip">
+      <rect x="0" y="0" width="535" height="6"/>
+    </clipPath>
     <style>
-      @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-      @keyframes slideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-      .title { animation: fadeIn 1.2s ease-out both; }
-      .subtitle { animation: slideUp 1s ease-out 0.6s both; }
+      @keyframes fadeIn {{ from {{ opacity: 0; }} to {{ opacity: 1; }} }}
+      @keyframes slideUp {{ from {{ opacity: 0; transform: translateY(12px); }} to {{ opacity: 1; transform: translateY(0); }} }}
+      @keyframes shimmer {{ 0% {{ transform: translateX(-100%); }} 100% {{ transform: translateX(100%); }} }}
+      .card {{ animation: fadeIn 0.8s ease-out both; }}
+      .username {{ animation: slideUp 0.6s ease-out 0.3s both; }}
+      .stat {{ animation: slideUp 0.5s ease-out both; }}
+      .shimmer {{ animation: shimmer 3s ease-in-out infinite; }}
     </style>
   </defs>
-  <rect width="800" height="200" rx="14" fill="#0d1117"/>
-  <rect x="0" y="0" width="800" height="4" fill="url(#nixQt)"/>
-  <text x="400" y="104" text-anchor="middle" font-family="'Fira Code', 'JetBrains Mono', monospace" font-size="52" font-weight="700" fill="url(#nixQt)" class="title">Diego0160</text>
-  <text x="400" y="146" text-anchor="middle" font-family="'Fira Code', monospace" font-size="17" fill="#8b949e" class="subtitle">NixOS &#183; Quickshell &#183; QML &#183; Hyprland</text>
+  <rect class="card" width="535" height="290" rx="14" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+  <g clip-path="url(#barClip)">
+    <rect x="0" y="0" width="535" height="6" fill="url(#nixQt)"/>
+    <rect class="shimmer" x="0" y="0" width="180" height="6" fill="rgba(255,255,255,0.35)"/>
+  </g>
+  <image href="{avatar}" x="40" y="60" width="90" height="90" clip-path="url(#avatarClip)"/>
+  <circle cx="85" cy="105" r="45" fill="none" stroke="url(#nixQt)" stroke-width="2"/>
+  <text class="username" x="150" y="95" font-family="'Fira Code', monospace" font-size="22" font-weight="700" fill="#7EBAE4">@{handle}</text>
+  <text x="150" y="118" font-family="'Fira Code', monospace" font-size="12" fill="#8b949e">GitHub Stats</text>
+{stat_rows(left, 150, 150)}
+{stat_rows(right, 330, 150)}
 </svg>
 '''
-    path = os.path.join(output_dir, "banner.svg")
+    path = os.path.join(output_dir, "profile-card.svg")
     with open(path, "w") as f:
         f.write(svg)
-    print(f"[*] Banner written: {path}")
+    print(f"[*] Profile card written: {path}")
 
 
 def _event_icon(type_):
@@ -421,12 +519,13 @@ def main():
     with open(args.output, "w") as f:
         f.write(readme)
 
-    generate_banner(os.path.dirname(args.output) or ".")
+    generate_profile_card(stats, os.path.dirname(args.output) or ".")
 
     print(f"[*] Done: {args.output}")
     print(f"    API returned: name={stats['name']}, repos={stats['repo_count']}, "
           f"followers={stats['followers']}, activity={len(stats['activity'])}, "
-          f"featured={len(stats['featured'])}")
+          f"featured={len(stats['featured'])}, commits={stats['commits']}, "
+          f"prs={stats['prs']}, issues={stats['issues']}, contributed={stats['contributed']}")
 
 
 main()

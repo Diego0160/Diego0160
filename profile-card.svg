@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="535" height="290" viewBox="0 0 535 290" fill="none">
+  <defs>
+    <linearGradient id="nixQt" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7EBAE4"/>
+      <stop offset="100%" stop-color="#44A51C"/>
+    </linearGradient>
+    <clipPath id="avatarClip">
+      <circle cx="85" cy="105" r="45"/>
+    </clipPath>
+    <clipPath id="barClip">
+      <rect x="0" y="0" width="535" height="6"/>
+    </clipPath>
+    <style>
+      @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+      @keyframes slideUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+      @keyframes shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+      .card { animation: fadeIn 0.8s ease-out both; }
+      .username { animation: slideUp 0.6s ease-out 0.3s both; }
+      .stat { animation: slideUp 0.5s ease-out both; }
+      .shimmer { animation: shimmer 3s ease-in-out infinite; }
+    </style>
+  </defs>
+  <rect class="card" width="535" height="290" rx="14" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+  <g clip-path="url(#barClip)">
+    <rect x="0" y="0" width="535" height="6" fill="url(#nixQt)"/>
+    <rect class="shimmer" x="0" y="0" width="180" height="6" fill="rgba(255,255,255,0.35)"/>
+  </g>
+  <image href="https://avatars.githubusercontent.com/u/91231627?v=4" x="40" y="60" width="90" height="90" clip-path="url(#avatarClip)"/>
+  <circle cx="85" cy="105" r="45" fill="none" stroke="url(#nixQt)" stroke-width="2"/>
+  <text class="username" x="150" y="95" font-family="'Fira Code', monospace" font-size="22" font-weight="700" fill="#7EBAE4">@Diego0160</text>
+  <text x="150" y="118" font-family="'Fira Code', monospace" font-size="12" fill="#8b949e">GitHub Stats</text>
+  <text class="stat" x="150" y="150" font-family="'Fira Code', monospace" font-size="13" fill="#8b949e">Total Repository:</text>
+  <text class="stat" x="300" y="150" font-family="'Fira Code', monospace" font-size="13" font-weight="600" fill="#e6edf3" text-anchor="end">9</text>
+  <text class="stat" x="150" y="176" font-family="'Fira Code', monospace" font-size="13" fill="#8b949e">Star's Count:</text>
+  <text class="stat" x="300" y="176" font-family="'Fira Code', monospace" font-size="13" font-weight="600" fill="#e6edf3" text-anchor="end">0</text>
+  <text class="stat" x="150" y="202" font-family="'Fira Code', monospace" font-size="13" fill="#8b949e">Fork's Count:</text>
+  <text class="stat" x="300" y="202" font-family="'Fira Code', monospace" font-size="13" font-weight="600" fill="#e6edf3" text-anchor="end">0</text>
+  <text class="stat" x="150" y="228" font-family="'Fira Code', monospace" font-size="13" fill="#8b949e">Commit's Count:</text>
+  <text class="stat" x="300" y="228" font-family="'Fira Code', monospace" font-size="13" font-weight="600" fill="#e6edf3" text-anchor="end">188</text>
+
+  <text class="stat" x="330" y="150" font-family="'Fira Code', monospace" font-size="13" fill="#8b949e">Total PRs:</text>
+  <text class="stat" x="480" y="150" font-family="'Fira Code', monospace" font-size="13" font-weight="600" fill="#e6edf3" text-anchor="end">3</text>
+  <text class="stat" x="330" y="176" font-family="'Fira Code', monospace" font-size="13" fill="#8b949e">Total Issues:</text>
+  <text class="stat" x="480" y="176" font-family="'Fira Code', monospace" font-size="13" font-weight="600" fill="#e6edf3" text-anchor="end">2</text>
+  <text class="stat" x="330" y="202" font-family="'Fira Code', monospace" font-size="13" fill="#8b949e">Contributed to:</text>
+  <text class="stat" x="480" y="202" font-family="'Fira Code', monospace" font-size="13" font-weight="600" fill="#e6edf3" text-anchor="end">3</text>
+
+</svg>
