@@ -7,6 +7,7 @@ declared as a Nix dependency and GITHUB_TOKEN is available at runtime
 """
 
 import argparse
+import base64
 import json
 import os
 import urllib.request
@@ -344,14 +345,37 @@ def render_featured(repos):
     return rows
 
 
+def fetch_avatar_base64(avatar_url, size=180):
+    """Fetch an avatar and return it as a base64 data URI.
+
+    GitHub's README sanitizer rejects <image> elements in SVGs (both external
+    URLs and data URIs -> "Invalid image source"), but <img> HTML inside
+    <foreignObject> with an inline data URI renders fine: the payload travels
+    inside the SVG, so no external fetch is needed (CSP img-src data:).
+    """
+    try:
+        req = urllib.request.Request(avatar_url, headers={"User-Agent": "profile-generator"})
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            data = resp.read()
+        ctype = resp.headers.get("Content-Type", "image/png")
+        return f"data:{ctype};base64,{base64.b64encode(data).decode()}"
+    except Exception as e:
+        print(f"[!] Avatar fetch failed ({e}); card rendered without photo")
+        return None
+
+
 def generate_profile_card(stats, output_dir="."):
-    """Generate a profile card SVG: animated banner + username + stats.
+    """Generate a profile card SVG: animated banner + avatar + username + stats.
 
     One self-contained SVG (CSS keyframes — GitHub renders these natively).
-    No <image> element: GitHub's README sanitizer rejects both external URLs
-    and base64 data URIs inside SVG ("Invalid image source").
+    Avatar is embedded as an <img> HTML element inside <foreignObject> with a
+    base64 data URI: GitHub's sanitizer rejects <image> elements (external URLs
+    and data URIs alike -> "Invalid image source"), but <img> inside
+    <foreignObject> with inline data renders fine (no external fetches).
     """
     handle = stats["username"]
+    avatar_url = stats.get("avatar_url", f"https://github.com/{handle}.png")
+    avatar_data = fetch_avatar_base64(avatar_url)
     repos = stats["public_repos"]
     stars = stats["total_stars"]
     forks = stats["total_forks"]
@@ -382,6 +406,18 @@ def generate_profile_card(stats, output_dir="."):
             )
         return rows
 
+    avatar_block = ""
+    if avatar_data:
+        avatar_block = f'''  <g clip-path="url(#avatarClip)">
+    <foreignObject x="40" y="60" width="90" height="90">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <img src="{avatar_data}" width="90" height="90" alt="{handle}"/>
+      </div>
+    </foreignObject>
+  </g>
+  <circle cx="85" cy="105" r="45" fill="none" stroke="url(#nixQt)" stroke-width="2"/>
+'''
+
     svg = f'''<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="535" height="290" viewBox="0 0 535 290" fill="none">
   <defs>
     <linearGradient id="nixQt" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -390,6 +426,9 @@ def generate_profile_card(stats, output_dir="."):
     </linearGradient>
     <clipPath id="barClip">
       <rect x="0" y="0" width="535" height="6"/>
+    </clipPath>
+    <clipPath id="avatarClip">
+      <circle cx="85" cy="105" r="45"/>
     </clipPath>
     <style>
       @keyframes fadeIn {{ from {{ opacity: 0; }} to {{ opacity: 1; }} }}
@@ -406,8 +445,8 @@ def generate_profile_card(stats, output_dir="."):
     <rect x="0" y="0" width="535" height="6" fill="url(#nixQt)"/>
     <rect class="shimmer" x="0" y="0" width="180" height="6" fill="rgba(255,255,255,0.35)"/>
   </g>
-  <text class="username" x="267" y="85" text-anchor="middle" font-family="'Fira Code', monospace" font-size="22" font-weight="700" fill="#7EBAE4">@{handle}</text>
-  <text x="267" y="110" text-anchor="middle" font-family="'Fira Code', monospace" font-size="12" fill="#8b949e">GitHub Stats</text>
+{avatar_block}  <text class="username" x="150" y="95" font-family="'Fira Code', monospace" font-size="22" font-weight="700" fill="#7EBAE4">@{handle}</text>
+  <text x="150" y="118" font-family="'Fira Code', monospace" font-size="12" fill="#8b949e">GitHub Stats</text>
 {stat_rows(left, 150, 150)}
 {stat_rows(right, 330, 150)}
 </svg>
