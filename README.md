@@ -9,12 +9,15 @@
 ## Tech Stack
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=nix&theme=dark" title="NixOS" alt="NixOS" width="48" height="48" />
   <img src="https://skillicons.dev/icons?i=qt&theme=dark" title="Qt / QML" alt="Qt / QML" width="48" height="48" />
-  <img src="https://skillicons.dev/icons?i=python&theme=dark" title="Python" alt="Python" width="48" height="48" />
-  <img src="https://skillicons.dev/icons?i=typescript&theme=dark" title="TypeScript" alt="TypeScript" width="48" height="48" />
   <img src="https://skillicons.dev/icons?i=haxe&theme=dark" title="Haxe" alt="Haxe" width="48" height="48" />
-  <img src="https://skillicons.dev/icons?i=linux&theme=dark" title="Linux" alt="Linux" width="48" height="48" />
+  <img src="https://skillicons.dev/icons?i=lua&theme=dark" title="Lua" alt="Lua" width="48" height="48" />
+  <img src="https://skillicons.dev/icons?i=python&theme=dark" title="Python" alt="Python" width="48" height="48" />
+  <img src="https://skillicons.dev/icons?i=cpp&theme=dark" title="C++" alt="C++" width="48" height="48" />
+  <img src="https://skillicons.dev/icons?i=typescript&theme=dark" title="TypeScript" alt="TypeScript" width="48" height="48" />
+  <img src="https://skillicons.dev/icons?i=javascript&theme=dark" title="JavaScript" alt="JavaScript" width="48" height="48" />
+  <img src="https://skillicons.dev/icons?i=bash&theme=dark" title="Shell" alt="Shell" width="48" height="48" />
+  <img src="https://skillicons.dev/icons?i=nix&theme=dark" title="NixOS" alt="NixOS" width="48" height="48" />
 </p>
 
 ---

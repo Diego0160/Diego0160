@@ -302,14 +302,21 @@ def render_template(template_path, stats):
 
 
 def render_tech_icons():
-    """Skill icons with per-icon tooltips (title attribute survives GitHub's sanitizer)."""
+    """Skill icons with per-icon tooltips (title attribute survives GitHub's sanitizer).
+
+    Languages actually used across all projects on the system (inir, FNF mods,
+    InkBridge, caelestia-dots-flake, MST-API, Arduino, ...) — not GitHub profile stats.
+    """
     skills = [
-        ("nix", "NixOS"),
         ("qt", "Qt / QML"),
-        ("python", "Python"),
-        ("typescript", "TypeScript"),
         ("haxe", "Haxe"),
-        ("linux", "Linux"),
+        ("lua", "Lua"),
+        ("python", "Python"),
+        ("cpp", "C++"),
+        ("typescript", "TypeScript"),
+        ("javascript", "JavaScript"),
+        ("bash", "Shell"),
+        ("nix", "NixOS"),
     ]
     return "\n".join(
         f'  <img src="https://skillicons.dev/icons?i={icon}&theme=dark" title="{label}" alt="{label}" width="48" height="48" />'
