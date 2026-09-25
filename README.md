@@ -44,14 +44,14 @@
   <tbody>
   <tr>
     <td>🎨</td>
-    <td><sub><b><a href='https://github.com/Diego0160/sddm-astronaut-theme'>sddm-astronaut-theme</a></b></sub></td>
-    <td><sub>Series of modern looking themes for SDDM.</sub></td>
+    <td><sub><b><a href='https://github.com/Diego0160/quickshell-games-launchers'>quickshell-games-launchers</a></b></sub></td>
+    <td><sub>🎮 Quickshell launchers for Hyprland</sub></td>
     <td><sub><code>QML</code></sub></td>
   </tr>
   <tr>
     <td>🎨</td>
-    <td><sub><b><a href='https://github.com/Diego0160/quickshell-games-launchers'>quickshell-games-launchers</a></b></sub></td>
-    <td><sub>🎮 Quickshell launchers for Hyprland</sub></td>
+    <td><sub><b><a href='https://github.com/Diego0160/sddm-astronaut-theme'>sddm-astronaut-theme</a></b></sub></td>
+    <td><sub>Series of modern looking themes for SDDM.</sub></td>
     <td><sub><code>QML</code></sub></td>
   </tr>
 
@@ -77,6 +77,36 @@
   </thead>
   <tbody>
   <tr>
+    <td>💬</td>
+    <td><sub><b>Eaquo</b>/quickshell-games-launchers</sub></td>
+    <td><sub>commented on issue #14</sub></td>
+    <td><sub><code>2026-09-25</code></sub></td>
+  </tr>
+  <tr>
+    <td>🔄</td>
+    <td><sub><b>Eaquo</b>/quickshell-games-launchers</sub></td>
+    <td><sub>opened PR #14 · </sub></td>
+    <td><sub><code>2026-09-25</code></sub></td>
+  </tr>
+  <tr>
+    <td>📤</td>
+    <td><sub><b>Diego0160</b>/quickshell-games-launchers</sub></td>
+    <td><sub>pushed changes · 74ea77e</sub></td>
+    <td><sub><code>2026-09-25</code></sub></td>
+  </tr>
+  <tr>
+    <td>📤</td>
+    <td><sub><b>Diego0160</b>/quickshell-games-launchers</sub></td>
+    <td><sub>pushed changes · 6d7828f</sub></td>
+    <td><sub><code>2026-09-25</code></sub></td>
+  </tr>
+  <tr>
+    <td>📤</td>
+    <td><sub><b>Diego0160</b>/quickshell-games-launchers</sub></td>
+    <td><sub>pushed changes · c591167</sub></td>
+    <td><sub><code>2026-09-25</code></sub></td>
+  </tr>
+  <tr>
     <td>📤</td>
     <td><sub><b>Diego0160</b>/Diego0160</sub></td>
     <td><sub>pushed changes · 1ffce44</sub></td>
@@ -92,36 +122,6 @@
     <td>📤</td>
     <td><sub><b>Diego0160</b>/Diego0160</sub></td>
     <td><sub>pushed changes · 0ac7ae7</sub></td>
-    <td><sub><code>2026-09-13</code></sub></td>
-  </tr>
-  <tr>
-    <td>📤</td>
-    <td><sub><b>Diego0160</b>/Diego0160</sub></td>
-    <td><sub>pushed changes · 683b424</sub></td>
-    <td><sub><code>2026-09-13</code></sub></td>
-  </tr>
-  <tr>
-    <td>📤</td>
-    <td><sub><b>Diego0160</b>/Diego0160</sub></td>
-    <td><sub>pushed changes · efc8e3e</sub></td>
-    <td><sub><code>2026-09-13</code></sub></td>
-  </tr>
-  <tr>
-    <td>📤</td>
-    <td><sub><b>Diego0160</b>/Diego0160</sub></td>
-    <td><sub>pushed changes · ba1b643</sub></td>
-    <td><sub><code>2026-09-13</code></sub></td>
-  </tr>
-  <tr>
-    <td>📤</td>
-    <td><sub><b>Diego0160</b>/Diego0160</sub></td>
-    <td><sub>pushed changes · 5c80839</sub></td>
-    <td><sub><code>2026-09-13</code></sub></td>
-  </tr>
-  <tr>
-    <td>⭐</td>
-    <td><sub><b>DesktopECHO</b>/T95-H616-Malware</sub></td>
-    <td><sub>starred</sub></td>
     <td><sub><code>2026-09-13</code></sub></td>
   </tr>
 
