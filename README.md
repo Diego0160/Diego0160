@@ -77,6 +77,24 @@
   </thead>
   <tbody>
   <tr>
+    <td>📤</td>
+    <td><sub><b>Diego0160</b>/quickshell-games-launchers</sub></td>
+    <td><sub>pushed changes · 51fad04</sub></td>
+    <td><sub><code>2026-09-25</code></sub></td>
+  </tr>
+  <tr>
+    <td>📤</td>
+    <td><sub><b>Diego0160</b>/quickshell-games-launchers</sub></td>
+    <td><sub>pushed changes · f0256fa</sub></td>
+    <td><sub><code>2026-09-25</code></sub></td>
+  </tr>
+  <tr>
+    <td>✨</td>
+    <td><sub><b>Diego0160</b>/quickshell-games-launchers</sub></td>
+    <td><sub>created branch pr-upstream-fixes</sub></td>
+    <td><sub><code>2026-09-25</code></sub></td>
+  </tr>
+  <tr>
     <td>💬</td>
     <td><sub><b>Eaquo</b>/quickshell-games-launchers</sub></td>
     <td><sub>commented on issue #14</sub></td>
@@ -105,24 +123,6 @@
     <td><sub><b>Diego0160</b>/quickshell-games-launchers</sub></td>
     <td><sub>pushed changes · c591167</sub></td>
     <td><sub><code>2026-09-25</code></sub></td>
-  </tr>
-  <tr>
-    <td>📤</td>
-    <td><sub><b>Diego0160</b>/Diego0160</sub></td>
-    <td><sub>pushed changes · 1ffce44</sub></td>
-    <td><sub><code>2026-09-13</code></sub></td>
-  </tr>
-  <tr>
-    <td>📤</td>
-    <td><sub><b>Diego0160</b>/Diego0160</sub></td>
-    <td><sub>pushed changes · aeea864</sub></td>
-    <td><sub><code>2026-09-13</code></sub></td>
-  </tr>
-  <tr>
-    <td>📤</td>
-    <td><sub><b>Diego0160</b>/Diego0160</sub></td>
-    <td><sub>pushed changes · 0ac7ae7</sub></td>
-    <td><sub><code>2026-09-13</code></sub></td>
   </tr>
 
   </tbody>
