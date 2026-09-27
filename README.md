@@ -77,6 +77,12 @@
   </thead>
   <tbody>
   <tr>
+    <td>🔄</td>
+    <td><sub><b>Eaquo</b>/quickshell-games-launchers</sub></td>
+    <td><sub>merged PR #14 · </sub></td>
+    <td><sub><code>2026-09-26</code></sub></td>
+  </tr>
+  <tr>
     <td>📤</td>
     <td><sub><b>Diego0160</b>/quickshell-games-launchers</sub></td>
     <td><sub>pushed changes · 51fad04</sub></td>
@@ -116,12 +122,6 @@
     <td>📤</td>
     <td><sub><b>Diego0160</b>/quickshell-games-launchers</sub></td>
     <td><sub>pushed changes · 6d7828f</sub></td>
-    <td><sub><code>2026-09-25</code></sub></td>
-  </tr>
-  <tr>
-    <td>📤</td>
-    <td><sub><b>Diego0160</b>/quickshell-games-launchers</sub></td>
-    <td><sub>pushed changes · c591167</sub></td>
     <td><sub><code>2026-09-25</code></sub></td>
   </tr>
 
