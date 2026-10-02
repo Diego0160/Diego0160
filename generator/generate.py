@@ -542,7 +542,7 @@ def _lang_logo(lang):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--username", default="Diego0160")
+    parser.add_argument("--username", default="thealtd")
     parser.add_argument("--template", default="generator/template.md")
     parser.add_argument("--output", default="README.md")
     args = parser.parse_args()

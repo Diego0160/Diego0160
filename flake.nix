@@ -1,5 +1,5 @@
 {
-  description = "Diego0160's GitHub profile README, built with Nix";
+  description = "thealtd's GitHub profile README, built with Nix";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -20,7 +20,7 @@
           runtimeInputs = [ pkgs.python3 ];
           text = ''
             python3 ${./generator/generate.py} \
-              --username Diego0160 \
+              --username thealtd \
               --template ${./generator/template.md} \
               --output README.md
           '';
