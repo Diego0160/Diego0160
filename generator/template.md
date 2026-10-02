@@ -15,7 +15,7 @@
 ## GitHub Stats
 
 <p align="center">
-  <img src="https://streak-stats.demolab.com/?user={{ name }}&theme=vue-dark&hide_border=true" height="165" />
+  <img src="https://streak-stats.demolab.com/?user={{ username }}&theme=vue-dark&hide_border=true" height="165" />
 </p>
 
 ---
@@ -81,7 +81,7 @@
 ## Contribution Snake
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/{{ name }}/{{ name }}/output/snake.svg" alt="snake animation" />
+  <img src="https://raw.githubusercontent.com/{{ username }}/{{ username }}/output/snake.svg" alt="snake animation" />
 </p>
 
 ---
@@ -90,7 +90,7 @@
   <sub><i>Generated with Nix</i></sub>
   <br>
   <sub>
-    <a href="https://github.com/{{ name }}/{{ name }}">Source</a>
+    <a href="https://github.com/{{ username }}/{{ username }}">Source</a>
     ·
     <a href="https://nixos.org">NixOS</a>
     ·
@@ -98,7 +98,7 @@
   </sub>
   <br>
   <sub>
-    <img src="https://komarev.com/ghpvc/?username={{ name }}&color=7EBAE4&style=flat" alt="Profile views" />
+    <img src="https://komarev.com/ghpvc/?username={{ username }}&color=7EBAE4&style=flat" alt="Profile views" />
   </sub>
   <br>
   <sub>

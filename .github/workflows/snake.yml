@@ -15,7 +15,7 @@ jobs:
 
       - uses: Platane/snk@v3
         with:
-          github_user_name: Diego0160
+          github_user_name: thealtd
           outputs: |
             output/snake.svg?color_snake=#7EBAE4&color_dots=#161b22,#2ea043,#44A51C,#7EBAE4,#58a6ff
             output/snake-dark.svg?palette=github-dark
