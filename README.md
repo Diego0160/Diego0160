@@ -23,7 +23,7 @@
 ## GitHub Stats
 
 <p align="center">
-  <img src="https://streak-stats.demolab.com/?user=Diego0160&theme=vue-dark&hide_border=true" height="165" />
+  <img src="https://streak-stats.demolab.com/?user=thealtd&theme=vue-dark&hide_border=true" height="165" />
 </p>
 
 ---
@@ -44,13 +44,13 @@
   <tbody>
   <tr>
     <td>🎨</td>
-    <td><sub><b><a href='https://github.com/Diego0160/quickshell-games-launchers'>quickshell-games-launchers</a></b></sub></td>
+    <td><sub><b><a href='https://github.com/thealtd/quickshell-games-launchers'>quickshell-games-launchers</a></b></sub></td>
     <td><sub>🎮 Quickshell launchers for Hyprland</sub></td>
     <td><sub><code>QML</code></sub></td>
   </tr>
   <tr>
     <td>🎨</td>
-    <td><sub><b><a href='https://github.com/Diego0160/sddm-astronaut-theme'>sddm-astronaut-theme</a></b></sub></td>
+    <td><sub><b><a href='https://github.com/thealtd/sddm-astronaut-theme'>sddm-astronaut-theme</a></b></sub></td>
     <td><sub>Series of modern looking themes for SDDM.</sub></td>
     <td><sub><code>QML</code></sub></td>
   </tr>
@@ -78,25 +78,43 @@
   <tbody>
   <tr>
     <td>🔄</td>
+    <td><sub><b>thealtd</b>/thealtd</sub></td>
+    <td><sub>merged PR #1 · </sub></td>
+    <td><sub><code>2026-10-02</code></sub></td>
+  </tr>
+  <tr>
+    <td>🔄</td>
+    <td><sub><b>thealtd</b>/thealtd</sub></td>
+    <td><sub>opened PR #1 · </sub></td>
+    <td><sub><code>2026-10-02</code></sub></td>
+  </tr>
+  <tr>
+    <td>✨</td>
+    <td><sub><b>thealtd</b>/thealtd</sub></td>
+    <td><sub>created branch chore/rename-username-thealtd</sub></td>
+    <td><sub><code>2026-10-02</code></sub></td>
+  </tr>
+  <tr>
+    <td>🔄</td>
     <td><sub><b>Eaquo</b>/quickshell-games-launchers</sub></td>
     <td><sub>merged PR #14 · </sub></td>
     <td><sub><code>2026-09-26</code></sub></td>
   </tr>
   <tr>
     <td>📤</td>
-    <td><sub><b>Diego0160</b>/quickshell-games-launchers</sub></td>
+    <td><sub><b>thealtd</b>/quickshell-games-launchers</sub></td>
     <td><sub>pushed changes · 51fad04</sub></td>
     <td><sub><code>2026-09-25</code></sub></td>
   </tr>
   <tr>
     <td>📤</td>
-    <td><sub><b>Diego0160</b>/quickshell-games-launchers</sub></td>
+    <td><sub><b>thealtd</b>/quickshell-games-launchers</sub></td>
     <td><sub>pushed changes · f0256fa</sub></td>
     <td><sub><code>2026-09-25</code></sub></td>
   </tr>
   <tr>
     <td>✨</td>
-    <td><sub><b>Diego0160</b>/quickshell-games-launchers</sub></td>
+    <td><sub><b>thealtd</b>/quickshell-games-launchers</sub></td>
     <td><sub>created branch pr-upstream-fixes</sub></td>
     <td><sub><code>2026-09-25</code></sub></td>
   </tr>
@@ -104,24 +122,6 @@
     <td>💬</td>
     <td><sub><b>Eaquo</b>/quickshell-games-launchers</sub></td>
     <td><sub>commented on issue #14</sub></td>
-    <td><sub><code>2026-09-25</code></sub></td>
-  </tr>
-  <tr>
-    <td>🔄</td>
-    <td><sub><b>Eaquo</b>/quickshell-games-launchers</sub></td>
-    <td><sub>opened PR #14 · </sub></td>
-    <td><sub><code>2026-09-25</code></sub></td>
-  </tr>
-  <tr>
-    <td>📤</td>
-    <td><sub><b>Diego0160</b>/quickshell-games-launchers</sub></td>
-    <td><sub>pushed changes · 74ea77e</sub></td>
-    <td><sub><code>2026-09-25</code></sub></td>
-  </tr>
-  <tr>
-    <td>📤</td>
-    <td><sub><b>Diego0160</b>/quickshell-games-launchers</sub></td>
-    <td><sub>pushed changes · 6d7828f</sub></td>
     <td><sub><code>2026-09-25</code></sub></td>
   </tr>
 
@@ -149,7 +149,7 @@
 ## Contribution Snake
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Diego0160/Diego0160/output/snake.svg" alt="snake animation" />
+  <img src="https://raw.githubusercontent.com/thealtd/thealtd/output/snake.svg" alt="snake animation" />
 </p>
 
 ---
@@ -158,7 +158,7 @@
   <sub><i>Generated with Nix</i></sub>
   <br>
   <sub>
-    <a href="https://github.com/Diego0160/Diego0160">Source</a>
+    <a href="https://github.com/thealtd/thealtd">Source</a>
     ·
     <a href="https://nixos.org">NixOS</a>
     ·
@@ -166,7 +166,7 @@
   </sub>
   <br>
   <sub>
-    <img src="https://komarev.com/ghpvc/?username=Diego0160&color=7EBAE4&style=flat" alt="Profile views" />
+    <img src="https://komarev.com/ghpvc/?username=thealtd&color=7EBAE4&style=flat" alt="Profile views" />
   </sub>
   <br>
   <sub>
