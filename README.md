@@ -77,6 +77,18 @@
   </thead>
   <tbody>
   <tr>
+    <td>🗑️</td>
+    <td><sub><b>thealtd</b>/thealtd</sub></td>
+    <td><sub>DeleteEvent</sub></td>
+    <td><sub><code>2026-10-02</code></sub></td>
+  </tr>
+  <tr>
+    <td>✨</td>
+    <td><sub><b>thealtd</b>/thealtd</sub></td>
+    <td><sub>created branch tmp-noreply-check</sub></td>
+    <td><sub><code>2026-10-02</code></sub></td>
+  </tr>
+  <tr>
     <td>📤</td>
     <td><sub><b>thealtd</b>/thealtd</sub></td>
     <td><sub>pushed changes · e622bbb</sub></td>
@@ -111,18 +123,6 @@
     <td><sub><b>Eaquo</b>/quickshell-games-launchers</sub></td>
     <td><sub>merged PR #14 · </sub></td>
     <td><sub><code>2026-09-26</code></sub></td>
-  </tr>
-  <tr>
-    <td>📤</td>
-    <td><sub><b>thealtd</b>/quickshell-games-launchers</sub></td>
-    <td><sub>pushed changes · 51fad04</sub></td>
-    <td><sub><code>2026-09-25</code></sub></td>
-  </tr>
-  <tr>
-    <td>📤</td>
-    <td><sub><b>thealtd</b>/quickshell-games-launchers</sub></td>
-    <td><sub>pushed changes · f0256fa</sub></td>
-    <td><sub><code>2026-09-25</code></sub></td>
   </tr>
 
   </tbody>
